@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-// @ts-ignore
+// @ts-expect-error tremor types
 import { Card as TremorCard, Metric, Text, Flex, BadgeDelta } from "@tremor/react"
 import { PipelineBoard } from "@/components/brand/pipeline-board"
 import type { PipelineMatch } from "@/components/brand/pipeline-board"
