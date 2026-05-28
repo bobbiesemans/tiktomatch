@@ -1,6 +1,5 @@
 "use client"
 
-// @ts-expect-error tremor types
 import { AreaChart } from "@tremor/react"
 import { TrendingUp } from "lucide-react"
 
