@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TikToMatch
 
-## Getting Started
+AI-powered matching platform voor TikTok creators en Belgische brands.
 
-First, run the development server:
+## Tech stack
+
+- **Next.js 14** (App Router)
+- **Supabase** (auth + database + RLS)
+- **Tailwind CSS**
+- **TypeScript**
+- **Claude claude-sonnet-4-6** (AI matching engine)
+
+## Setup
+
+### 1. Supabase project aanmaken
+
+1. Ga naar [supabase.com](https://supabase.com) → nieuw project
+2. Kopieer de Project URL en anon key
+3. Voer de migration uit: plak inhoud van `supabase/migrations/001_initial_schema.sql` in de Supabase SQL Editor
+
+### 2. Google OAuth configureren (optioneel)
+
+In Supabase Dashboard → Authentication → Providers → Google:
+- Client ID en Secret van Google Cloud Console
+- Redirect URL: `https://jouwproject.supabase.co/auth/v1/callback`
+
+### 3. Omgevingsvariabelen
+
+```bash
+cp .env.local.example .env.local
+```
+
+Vul in:
+```
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+SUPABASE_SERVICE_ROLE_KEY=eyJ...
+ANTHROPIC_API_KEY=sk-ant-...
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+### 4. Dev server starten
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structuur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── auth/
+│   │   ├── login/          # Email/wachtwoord login
+│   │   ├── register/       # Registratie + user type keuze
+│   │   ├── callback/       # OAuth callback handler
+│   │   ├── signout/        # Uitloggen
+│   │   └── verify-email/   # Bevestigingspagina
+│   ├── dashboard/          # Beveiligd dashboard
+│   └── api/
+│       └── matches/
+│           └── generate/   # POST: genereer AI matches
+├── lib/
+│   ├── supabase/
+│   │   ├── client.ts       # Browser client
+│   │   └── server.ts       # Server client
+│   └── ai/
+│       └── matching.ts     # Claude matching engine
+├── middleware.ts            # Auth redirects
+└── types/
+    └── database.ts         # TypeScript types
+supabase/
+└── migrations/
+    └── 001_initial_schema.sql
+```
 
-## Learn More
+## AI Matching Engine
 
-To learn more about Next.js, take a look at the following resources:
+De `berekenAIScore()` functie stuurt creator + brand data naar Claude en ontvangt:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Score** (0-100) op basis van 5 criteria
+- **Uitleg** in het Nederlands
+- **Sterke punten** van de match
+- **Aandachtspunten**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Scoring criteria:
+| Criterium | Punten |
+|-----------|--------|
+| Niche-product alignment | 30 |
+| Engagement kwaliteit | 20 |
+| Verkoopkapaciteit (GMV) | 20 |
+| Demografische match | 15 |
+| Budget fit | 10 |
+| Taal & regio | 5 |
 
-## Deploy on Vercel
+## Database schema
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `profiles` — user type (brand/creator), auto-aangemaakt via trigger
+- `creators` — TikTok stats, engagement, GMV, niches
+- `brands` — bedrijfsinfo, budget, doelgroep, campagne type
+- `matches` — AI score, uitleg, status (pending/accepted/rejected/completed)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RLS zorgt dat brands **alleen eigen data** zien.
