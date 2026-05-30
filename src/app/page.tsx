@@ -9,7 +9,7 @@ import { TikTokProfileCard } from "@/components/home/tiktok-profile-card"
 import {
   ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
-  ChevronRight, Sparkles, CreditCard, Lock
+  Sparkles, CreditCard, Lock
 } from "lucide-react"
 
 export const metadata = {
