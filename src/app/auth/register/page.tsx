@@ -57,7 +57,7 @@ export default function RegisterPage() {
       setServerError(error.message === "User already registered" ? "Dit e-mailadres is al in gebruik." : error.message)
       return
     }
-    router.push(`/auth/onboarding/${userType}`)
+    router.push("/auth/verify-email")
   }
 
   return (
