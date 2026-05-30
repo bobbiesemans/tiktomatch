@@ -5,9 +5,9 @@ import PrijsKaart from "@/components/PrijsKaart"
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
 import {
-  ArrowRight, CheckCircle, Zap, Star, TrendingUp, Building2, Video,
+  ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
-  Play, ChevronRight, Sparkles, CreditCard, Lock
+  ChevronRight, Sparkles, CreditCard, Lock
 } from "lucide-react"
 
 export const metadata = {
@@ -502,8 +502,8 @@ export default function LandingPage() {
               <StaggerItem key={t.n}>
                 <div className="bg-[#111] border border-white/8 rounded-2xl p-6 h-full hover:border-white/15 transition-colors">
                   <div className="flex gap-0.5 mb-4">
-                    {Array.from({ length: t.stars }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />
+                    {Array.from({ length: t.stars }).map((_, si) => (
+                      <Star key={si} className="h-4 w-4 text-amber-400 fill-amber-400" />
                     ))}
                   </div>
                   <p className="text-white/70 text-sm leading-relaxed mb-6">&ldquo;{t.q}&rdquo;</p>
