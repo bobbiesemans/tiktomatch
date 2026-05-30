@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button"
 import { acceptMatch, rejectMatch, completeMatch } from "@/app/actions/matches"
 import { CreatorSheet } from "@/components/brand/creator-sheet"
 import { formatNumber, formatEuro, scoreColor } from "@/lib/utils"
-import { Search, CheckCircle2, ShieldCheck } from "lucide-react"
+import { Search, CheckCircle2, ShieldCheck, MessageSquare, Lock } from "lucide-react"
+import Link from "next/link"
 
 export type PipelineMatch = {
   id: string
@@ -46,11 +47,15 @@ const COLUMNS: { status: ColumnStatus; label: string; color: string; bg: string 
   { status: "rejected",  label: "Afgewezen",    color: "text-gray-600",   bg: "bg-gray-100" },
 ]
 
+const FREE_LIMIT = 5
+
 interface Props {
   matches: PipelineMatch[]
+  subscriptionTier?: string
 }
 
-export function PipelineBoard({ matches }: Props) {
+export function PipelineBoard({ matches, subscriptionTier = "free" }: Props) {
+  const isFree = subscriptionTier === "free"
   const [selectedMatch, setSelectedMatch] = useState<PipelineMatch | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [statusFilter, setStatusFilter] = useState<"all" | ColumnStatus>("all")
@@ -142,19 +147,30 @@ export function PipelineBoard({ matches }: Props) {
                     Geen creators
                   </div>
                 )}
-                {colMatches.map((match) => {
+                {colMatches.map((match, idx) => {
                   const c = match.creators
                   if (!c) return null
                   const initials = (c.display_name ?? c.tiktok_handle).slice(0, 2).toUpperCase()
                   const score = match.ai_score
                   const scoreClr = scoreColor(score)
+                  const isLocked = isFree && col.status === "pending" && idx >= FREE_LIMIT
 
                   return (
                     <div
                       key={match.id}
-                      className="bg-white border border-gray-200 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                      onClick={() => setSelectedMatch(match)}
+                      className={`bg-white border border-gray-200 rounded-xl p-3 shadow-sm transition-shadow relative ${isLocked ? "opacity-60" : "hover:shadow-md cursor-pointer"}`}
+                      onClick={() => !isLocked && setSelectedMatch(match)}
                     >
+                    {/* Locked overlay voor free tier */}
+                    {isLocked && (
+                      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center z-10 p-4">
+                        <Lock className="h-6 w-6 text-gray-400 mb-2" />
+                        <p className="text-xs font-semibold text-gray-700 text-center mb-2">Upgrade voor meer matches</p>
+                        <Link href="/dashboard/brand/instellingen">
+                          <Button size="sm" className="h-7 text-xs bg-[#ff0050] hover:bg-[#ff337a]">Upgraden</Button>
+                        </Link>
+                      </div>
+                    )}
                       {/* Avatar + name */}
                       <div className="flex items-start gap-2 mb-2">
                         <div
@@ -231,6 +247,11 @@ export function PipelineBoard({ matches }: Props) {
                         )}
                         {col.status === "accepted" && (
                           <>
+                            <Link href={`/dashboard/brand/berichten?match=${match.id}`} onClick={(e) => e.stopPropagation()}>
+                              <Button size="sm" variant="outline" className="h-7 text-xs gap-1">
+                                <MessageSquare className="h-3 w-3" />Chat
+                              </Button>
+                            </Link>
                             <Button
                               size="sm"
                               className="flex-1 h-7 text-xs bg-blue-600 hover:bg-blue-700"

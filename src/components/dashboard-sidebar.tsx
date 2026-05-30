@@ -4,13 +4,15 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard, Sparkles, Megaphone, BarChart2, Settings,
-  Gift, Wallet, User, ChevronRight,
+  Gift, Wallet, User, ChevronRight, MessageSquare, FileText, CreditCard,
 } from "lucide-react"
 
 const brandLinks = [
   { href: "/dashboard/brand", label: "Overzicht", icon: LayoutDashboard },
   { href: "/dashboard/brand/matches", label: "Matches", icon: Sparkles },
   { href: "/dashboard/brand/campagnes", label: "Campagnes", icon: Megaphone },
+  { href: "/dashboard/brand/berichten", label: "Berichten", icon: MessageSquare },
+  { href: "/dashboard/brand/facturen", label: "Facturen", icon: FileText },
   { href: "/dashboard/brand/analytics", label: "Analytics", icon: BarChart2 },
   { href: "/dashboard/brand/instellingen", label: "Instellingen", icon: Settings },
 ]
@@ -19,6 +21,7 @@ const creatorLinks = [
   { href: "/dashboard/creator", label: "Overzicht", icon: LayoutDashboard },
   { href: "/dashboard/creator/aanbiedingen", label: "Aanbiedingen", icon: Gift },
   { href: "/dashboard/creator/campagnes", label: "Mijn campagnes", icon: Megaphone },
+  { href: "/dashboard/creator/berichten", label: "Berichten", icon: MessageSquare },
   { href: "/dashboard/creator/verdiensten", label: "Verdiensten", icon: Wallet },
   { href: "/dashboard/creator/mijn-profiel", label: "Mijn profiel", icon: User },
   { href: "/dashboard/creator/instellingen", label: "Instellingen", icon: Settings },
