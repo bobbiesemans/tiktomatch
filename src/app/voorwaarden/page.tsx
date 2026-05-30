@@ -12,7 +12,7 @@ export default function VoorwaardenPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Algemene Voorwaarden</h1>
-        <p className="text-gray-500 mb-8">Laatste update: 1 juni 2025 — TikToMatch BV, België</p>
+        <p className="text-gray-500 mb-8">Laatste update: 1 juni 2026 — TikToMatch BV, België</p>
 
         <div className="prose prose-gray max-w-none space-y-8">
 
@@ -96,10 +96,16 @@ export default function VoorwaardenPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-3">5. Platformfee & Commissie (Creators)</h2>
             <p className="text-gray-600 text-sm leading-relaxed">
-              TikToMatch rekent een <strong>platformfee van 20%</strong> op de waarde van elke campagne. Creators ontvangen 80% van de overeengekomen vergoeding. Bij affiliate-campagnes wordt de commissie berekend op de gerealiseerde omzet, verminderd met de platformfee.
+              TikToMatch rekent een <strong>platformfee van 20% op de creator-commissie</strong>. De creator-commissie wordt bepaald door het merk (typisch 5–30% van de verkoopprijs, afhankelijk van productcategorie). TikToMatch houdt 20% van dit commissiebedrag in als platformfee. De creator ontvangt de resterende 80% van de commissie.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed mt-2">
-              Uitbetalingen verlopen via Stripe Connect. Een minimumdrempel van €50 is van toepassing. Uitbetalingen worden verwerkt binnen 5-7 werkdagen na aanvraag. TikToMatch is niet aansprakelijk voor vertragingen door Stripe of bancaire instellingen.
+              <strong>Voorbeeld:</strong> Product verkoopprijs €49,99 × 10% commissie (€5,00) − 20% platformfee (€1,00) = <strong>€4,00 netto voor de creator</strong> per verkoop.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mt-2">
+              Uitbetaling volgt <strong>15 dagen na bevestigde levering</strong> van de bestelling aan de eindconsument, conform het TikTok Shop uitbetalingsmodel. Een minimumdrempel van €50 is van toepassing voor uitbetaling. TikToMatch is niet aansprakelijk voor vertragingen door het TikTok Shop-platform, terugbetalingen of bancaire instellingen.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mt-2">
+              Merken betalen daarnaast rechtstreeks aan TikTok Shop een referral fee van 9% op de verkoopprijs (4% gedurende de eerste 60 dagen voor nieuwe verkopers). Deze fee is verschuldigd aan TikTok, niet aan TikToMatch.
             </p>
           </section>
 

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacybeleid</h1>
-        <p className="text-gray-500 mb-8">Laatste update: 1 juni 2025 — TikToMatch BV, België</p>
+        <p className="text-gray-500 mb-8">Laatste update: 1 juni 2026 — TikToMatch BV, België</p>
 
         <div className="space-y-8 text-sm text-gray-600 leading-relaxed">
 

@@ -70,7 +70,7 @@ export default function LoginPage() {
             AI-matching op verkoopdata. Niet op volgersaantallen.
           </p>
         </div>
-        <p className="text-white/30 text-sm">© 2025 TikToMatch</p>
+        <p className="text-white/30 text-sm">© 2026 TikToMatch</p>
       </div>
 
       {/* Rechts: formulier */}

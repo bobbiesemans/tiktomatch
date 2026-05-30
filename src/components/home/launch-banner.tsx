@@ -16,7 +16,7 @@ export function LaunchBanner() {
           <strong>Pre-launch fase</strong>
           <span className="mx-2 opacity-60">·</span>
           TikTok Shopping Belgium lanceert officieel op
-          <strong> 15 juni 2025</strong>
+          <strong> 15 juni 2026</strong>
           <span className="mx-2 opacity-60">·</span>
           <Link href="/auth/register" className="underline underline-offset-2 hover:no-underline font-bold">
             Registreer nu gratis →

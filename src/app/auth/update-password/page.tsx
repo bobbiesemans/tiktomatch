@@ -59,7 +59,7 @@ export default function UpdatePasswordPage() {
           <h2 className="text-4xl font-bold text-white leading-tight mb-4">Nieuw wachtwoord instellen</h2>
           <p className="text-white/60 text-lg">Kies een sterk wachtwoord van minimaal 8 tekens.</p>
         </div>
-        <p className="text-white/30 text-sm">© 2025 TikToMatch</p>
+        <p className="text-white/30 text-sm">© 2026 TikToMatch</p>
       </div>
 
       <div className="flex-1 flex items-center justify-center p-8">

@@ -45,7 +45,7 @@ export function ContractModal({ matchId, brandName, campagneType, onAccepted, on
             </div>
             <div className="flex items-start gap-2">
               <Shield className="h-4 w-4 text-purple-600 mt-0.5 shrink-0" />
-              <p><strong>Commissie & uitbetaling:</strong> TikToMatch houdt een platformfee van 20% in op de campagnewaarde. Uitbetaling volgt na verificatie van de prestaties.</p>
+              <p><strong>Commissie & uitbetaling:</strong> TikToMatch houdt 20% in op jouw verdiende commissie als platformfee. Uitbetaling volgt <strong>15 dagen na bevestigde levering</strong> aan de klant — conform TikTok Shop-standaard. Minimum uitbetaling: €50.</p>
             </div>
             <div className="flex items-start gap-2">
               <Shield className="h-4 w-4 text-purple-600 mt-0.5 shrink-0" />

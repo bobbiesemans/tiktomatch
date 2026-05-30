@@ -47,7 +47,7 @@ export default function ResetPasswordPage() {
             Geen probleem. We sturen je een resetlink op je e-mailadres.
           </p>
         </div>
-        <p className="text-white/30 text-sm">© 2025 TikToMatch</p>
+        <p className="text-white/30 text-sm">© 2026 TikToMatch</p>
       </div>
 
       {/* Formulier rechts */}

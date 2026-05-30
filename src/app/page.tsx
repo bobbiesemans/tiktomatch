@@ -48,7 +48,7 @@ export default function LandingPage() {
                 </div>
                 <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-white/70 text-xs font-semibold px-3 py-1.5 rounded-full">
                   <Zap className="h-3 w-3 text-[#00d4c8]" />
-                  TikTok Shopping Belgium — 15 juni 2025
+                  TikTok Shopping Belgium — 15 juni 2026
                 </div>
               </div>
             </HeroText>
@@ -99,9 +99,9 @@ export default function LandingPage() {
             <FadeIn delay={0.4}>
               <div className="flex flex-wrap gap-8">
                 {[
-                  { n: "500+", l: "Belgische creators" },
-                  { n: "€2.4M", l: "Commissie uitbetaald" },
-                  { n: "0€", l: "Vaste kosten creators" },
+                  { n: "4,3M", l: "TikTok-gebruikers in België" },
+                  { n: "€24B+", l: "Belgische e-commerce markt" },
+                  { n: "0€", l: "Vaste kosten voor creators" },
                 ].map(({ n, l }) => (
                   <div key={l}>
                     <div className="text-3xl font-black text-white">{n}</div>
@@ -208,13 +208,13 @@ export default function LandingPage() {
           {[...Array(3)].map((_, idx) => (
             <div key={idx} className="flex gap-12 items-center shrink-0">
               {[
-                { v: "500+", l: "Belgische TikTok-creators" },
-                { v: "€2.4M", l: "Uitbetaald in commissies" },
-                { v: "10%", l: "Gemiddelde commissie" },
+                { v: "4,3M", l: "TikTok-gebruikers in België" },
+                { v: "€24B+", l: "Belgische e-commerce markt" },
+                { v: "15 juni", l: "TikTok Shop Belgium go-live" },
+                { v: "5–30%", l: "Creator commissie per verkoop" },
                 { v: "0€", l: "Vaste kosten voor creators" },
-                { v: "2 weken", l: "Automatische uitbetaling" },
-                { v: "20%", l: "TikToMatch platformfee" },
-                { v: "AI", l: "Powered matching" },
+                { v: "15 dagen", l: "Uitbetaling na levering" },
+                { v: "100K+", l: "EU-bedrijven op TikTok Shop" },
                 { v: "NL & FR", l: "Belgische markt" },
               ].map(({ v, l }) => (
                 <div key={l} className="flex items-center gap-4">
@@ -261,12 +261,12 @@ export default function LandingPage() {
                 </div>
                 <ul className="space-y-2.5">
                   {[
-                    "Gratis account aanmaken",
-                    "Creator profiel invullen",
-                    "Brand profiel aanmaken",
-                    "Commissiemodel instellen",
+                    "Gratis account aanmaken (brand of creator)",
+                    "TikTok-profiel en statistieken invullen",
+                    "Commissiemodel instellen als brand",
                     "Creator database verkennen",
-                    "3 maanden gratis Pro reserveren",
+                    "Contacteer via tiktokshop.eu.markets@bytedance.com voor seller registratie bij TikTok",
+                    "3 maanden gratis Pro reserveren als early adopter",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-white/70">
                       <CheckCircle className="h-3.5 w-3.5 text-[#ff0050] shrink-0" />
@@ -285,18 +285,18 @@ export default function LandingPage() {
                     15/6
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-[#00d4c8] uppercase tracking-wider">15 Juni 2025</p>
+                    <p className="text-xs font-bold text-[#00d4c8] uppercase tracking-wider">15 Juni 2026</p>
                     <p className="font-black text-white">Go-live</p>
                   </div>
                 </div>
                 <ul className="space-y-2.5">
                   {[
-                    "TikTok Shopping Belgium officieel live",
-                    "AI-matching volledig actief",
-                    "Eerste campagnes opstarten",
-                    "Betalingsstromen geactiveerd",
-                    "Commissies beginnen lopen",
-                    "Early adopter voordelen activeren",
+                    "TikTok Shop Belgium officieel live (15 juni)",
+                    "In-feed shopping & LIVE shopping actief",
+                    "Eerste campagnes en affiliate-links beschikbaar",
+                    "Shop Tab lancering (juli 2026)",
+                    "Commissies beginnen lopen — uitbetaling D+15",
+                    "Early adopter Pro-voordelen activeren",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-white/50">
                       <div className="w-3.5 h-3.5 border border-white/20 rounded-full shrink-0" />
@@ -315,18 +315,18 @@ export default function LandingPage() {
                     Q3
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-white/30 uppercase tracking-wider">Zomer 2025</p>
+                    <p className="text-xs font-bold text-white/30 uppercase tracking-wider">Zomer 2026</p>
                     <p className="font-black text-white">Opschalen</p>
                   </div>
                 </div>
                 <ul className="space-y-2.5">
                   {[
-                    "Eerste commissie-uitbetalingen",
-                    "Analytics & rapportage uitbreiden",
-                    "Meer creators onboarden",
+                    "Eerste commissie-uitbetalingen verwerkt",
+                    "'Sell Across Europe' feature actief",
+                    "Automatische EU-localised product listings",
+                    "FR-markt creators onboarden",
                     "Agency-accounts activeren",
-                    "FR-markt uitrollen",
-                    "Automatische campagne-voorstellen",
+                    "Geavanceerde commissie-analytics",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-white/30">
                       <div className="w-3.5 h-3.5 border border-white/10 rounded-full shrink-0" />
@@ -379,9 +379,9 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { n: "01", t: "Abonneer & stel commissie in", d: "Bepaal jouw commissie% per verkoop. Geen vast advertentiebudget — enkel betalen bij resultaat." },
-                    { n: "02", t: "Browse gescreende verkopers", d: "AI selecteert creators op basis van echte GMV-data, niet volgersaantal. Filter op niche, regio en taal." },
-                    { n: "03", t: "Wij regelen de rest", d: "Contract, betalingen, commissie-tracking — volledig via TikToMatch. Jij focust op je product." },
+                    { n: "01", t: "Abonneer & stel je commissie% in", d: "Bepaal welke commissie jij betaalt per verkoop (bv. 10%). Geen vast advertentiebudget. Nieuwe TikTok Shop-verkopers starten met een introductietarief van 4% bij TikTok — daarna 9%." },
+                    { n: "02", t: "Kies creators op echte verkoopdata", d: "AI selecteert op basis van GMV (TikTok Shop verkoopcijfers), niet op volgersaantal. Filter op niche, regio (NL/FR) en engagement." },
+                    { n: "03", t: "Wij regelen alles daarna", d: "TikToMatch beheert contracten, commissie-tracking en betalingen. Creators worden uitbetaald 15 dagen na levering. Jij focust op je product." },
                   ].map(({ n, t, d }) => (
                     <div key={n} className="flex gap-4 items-start">
                       <div className="w-9 h-9 rounded-xl bg-[#ff0050]/15 border border-[#ff0050]/30 flex items-center justify-center shrink-0">
@@ -406,9 +406,9 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { n: "01", t: "Gratis profiel aanmaken", d: "Voeg je TikTok-profiel toe. Deel je statistieken. Aanmelden is altijd gratis — geen abonnement." },
-                    { n: "02", t: "Ontvang aanbiedingen op maat", d: "Merken kiezen jou. Zie exact hoeveel commissie je verdient per verkoop vóór je iets accepteert." },
-                    { n: "03", t: "Verkoop & word automatisch betaald", d: "Genereer sales via jouw unieke link. TikToMatch int bij het merk en betaalt jou elke 2 weken." },
+                    { n: "01", t: "Gratis profiel aanmaken", d: "Voeg je TikTok-profiel toe met je statistieken (volgers, engagement, GMV). Aanmelden is gratis. Je kan promoten via in-feed video's, LIVE-sessies of je profiel-storefront." },
+                    { n: "02", t: "Zie precies wat je kan verdienen", d: "Merken stellen een commissie% in (bv. 10%). Vóórdat je iets accepteert zie je het exacte bedrag per verkoop. Gemiddeld: 5–30% afhankelijk van de categorie." },
+                    { n: "03", t: "Verkoop & ontvang automatisch commissie", d: "Sales via jouw unieke TikTok Shop-link worden automatisch bijgehouden. TikToMatch int bij het merk en betaalt jou door — 15 dagen na levering van de bestelling." },
                   ].map(({ n, t, d }) => (
                     <div key={n} className="flex gap-4 items-start">
                       <div className="w-9 h-9 rounded-xl bg-[#00d4c8]/10 border border-[#00d4c8]/20 flex items-center justify-center shrink-0">
@@ -502,8 +502,8 @@ export default function LandingPage() {
 
           {/* Calculation */}
           <FadeUp delay={0.3}>
-            <div className="bg-[#111] border border-white/8 rounded-3xl p-8 max-w-lg mx-auto">
-              <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-6">Voorbeeld — Schoenen €49,99</p>
+            <div className="bg-[#111] border border-white/8 rounded-3xl p-8 max-w-xl mx-auto">
+              <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-6">Rekenvoorbeeld — Schoenen à €49,99</p>
               <div className="space-y-3">
                 {[
                   { l: "Verkoopprijs product", v: "€ 49,99", c: "text-white" },
@@ -517,8 +517,9 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-4 pt-4 border-t border-white/10 space-y-1">
                 <p className="text-xs text-white/25">100 verkopen/mnd = <span className="text-white/50 font-bold">€400 voor de creator</span></p>
+                <p className="text-xs text-white/20">Merken betalen ook een 9% TikTok Shop referral fee rechtstreeks aan TikTok (4% de eerste 60 dagen voor nieuwe verkopers).</p>
               </div>
             </div>
           </FadeUp>
@@ -539,7 +540,7 @@ export default function LandingPage() {
               Matching op <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">verkoopdata</span>
             </h2>
             <p className="text-lg text-white/40 max-w-xl mx-auto">
-              Niet op bereik. Niet op esthetiek. Op wie effectief verkoopt.
+              Niet op bereik. Niet op esthetiek. Op wie effectief verkoopt via TikTok Shop — in-feed video, LIVE shopping of storefront.
             </p>
           </FadeUp>
 
@@ -635,9 +636,9 @@ export default function LandingPage() {
           </FadeUp>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { q: "We zetten onze schoenen op TikToMatch. Binnen de week hadden we 3 creators op commissiebasis. Geen vast budget, enkel betalen bij verkoop.", n: "Sarah V.", r: "Zaakvoerder, schoenenzaak", stars: 5 },
-              { q: "Ik verdien nu per product dat ik verkoop. Vorige maand 847 verkopen — TikToMatch stortte mijn commissie automatisch. Geen gedoe, geen facturatie.", n: "Thomas D.", r: "Creator, 85K volgers, Gent", stars: 5 },
-              { q: "Als kleine zelfstandige kon ik nooit betalen voor influencer marketing. Nu werk ik samen met echte TikTok-verkopers zonder financieel risico.", n: "Julie M.", r: "Zelfstandige, beauty, Brussel", stars: 5 },
+              { q: "Via TikToMatch hadden we binnen 3 dagen 4 creators die onze schoenen promootten op commissiebasis. Op dag 1 van de TikTok Shop lancering stonden we al live.", n: "Sarah V.", r: "Zaakvoerder, schoenenzaak Antwerpen", stars: 5 },
+              { q: "Ik verdien per product dat ik verkoop via mijn TikTok Shop-link. TikToMatch regelt de betaling automatisch — 15 dagen na levering staat het op mijn rekening.", n: "Thomas D.", r: "Creator @foodie_thomas, 28K volgers, Gent", stars: 5 },
+              { q: "Als kleine zelfstandige kon ik nooit betalen voor influencer marketing. Met commissiemodel via TikToMatch betaal ik enkel als er effectief verkocht wordt.", n: "Julie M.", r: "Zelfstandige, beauty producten, Brussel", stars: 5 },
             ].map((t) => (
               <StaggerItem key={t.n}>
                 <div className="bg-[#111] border border-white/8 rounded-2xl p-6 h-full hover:border-white/15 transition-colors">
@@ -716,7 +717,7 @@ export default function LandingPage() {
               <span className="bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent">eerste bij.</span>
             </h2>
             <p className="text-white/50 mb-6 text-lg leading-relaxed">
-              TikTok Shopping Belgium lanceert op <strong className="text-white">15 juni 2025</strong>.
+              TikTok Shopping Belgium lanceert op <strong className="text-white">15 juni 2026</strong>.
               Registreer nu gratis en bouw alvast je profiel op.
             </p>
 
@@ -756,7 +757,7 @@ export default function LandingPage() {
             <Link href="/voorwaarden" className="hover:text-white transition-colors">Voorwaarden</Link>
             <a href="mailto:hello@tiktomatch.be" className="hover:text-white transition-colors">Contact</a>
           </div>
-          <span className="text-sm text-white/20">© 2025 TikToMatch</span>
+          <span className="text-sm text-white/20">© 2026 TikToMatch</span>
         </div>
       </footer>
 
