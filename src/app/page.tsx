@@ -62,7 +62,7 @@ export default function LandingPage() {
             <HeroText>
               <p className="text-lg text-white/55 max-w-lg mb-6 leading-relaxed">
                 <strong className="text-white">4,3 miljoen Belgische TikTok-gebruikers. €24 miljard aan e-commerce.</strong> Een markt die opengaat voor wie er nu bij is.
-                TikToMatch is het eerste en enige Belgische platform dat jouw merk verbindt met bewezen TikTok-creators — op commissiebasis.
+                TikToMatch is het eerste en enige Belgische platform dat jouw merk verbindt met bewezen TikTok-creators.
               </p>
             </HeroText>
 
