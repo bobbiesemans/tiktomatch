@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { LaunchBanner } from "@/components/home/launch-banner"
 import WaitlistForm from "@/components/WaitlistForm"
-import PrijsKaart from "@/components/PrijsKaart"
+
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
 import {
