@@ -5,7 +5,7 @@ import PrijsKaart from "@/components/PrijsKaart"
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
 import {
-  ArrowRight, CheckCircle, Zap, Star, Building2, Video,
+  ArrowRight, CheckCircle, Zap, Star, TrendingUp, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
   ChevronRight, Sparkles, CreditCard, Lock
 } from "lucide-react"
@@ -498,7 +498,7 @@ export default function LandingPage() {
               { q: "We zetten onze schoenen op TikToMatch. Binnen de week hadden we 3 creators op commissiebasis. Geen vast budget, enkel betalen bij verkoop.", n: "Sarah V.", r: "Zaakvoerder, schoenenzaak", stars: 5 },
               { q: "Ik verdien nu per product dat ik verkoop. Vorige maand 847 verkopen — TikToMatch stortte mijn commissie automatisch. Geen gedoe, geen facturatie.", n: "Thomas D.", r: "Creator, 85K volgers, Gent", stars: 5 },
               { q: "Als kleine zelfstandige kon ik nooit betalen voor influencer marketing. Nu werk ik samen met echte TikTok-verkopers zonder financieel risico.", n: "Julie M.", r: "Zelfstandige, beauty, Brussel", stars: 5 },
-            ].map((t, i) => (
+            ].map((t) => (
               <StaggerItem key={t.n}>
                 <div className="bg-[#111] border border-white/8 rounded-2xl p-6 h-full hover:border-white/15 transition-colors">
                   <div className="flex gap-0.5 mb-4">
