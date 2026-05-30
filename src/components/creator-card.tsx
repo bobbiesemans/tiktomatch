@@ -1,14 +1,12 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { formatNumber, formatEuro } from "@/lib/utils"
-import { MatchScore } from "@/components/match-score"
 import { ScoreModal } from "@/components/score-modal"
 import type { MatchAnalysis } from "@/lib/anthropic"
 import {
-  Users, TrendingUp, ShoppingBag, MapPin, Globe,
+  Users, ShoppingBag, MapPin, Globe,
   ShieldCheck, Sparkles, MessageSquare, Play, Heart, Eye
 } from "lucide-react"
 
