@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useTransition } from "react"
 import { createClient } from "@/lib/supabase/client"
 import { sendMessage } from "@/app/actions/messages"
-import { Send, Loader2 } from "lucide-react"
+import { Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface Message {
@@ -152,7 +152,7 @@ export function ChatWindow({ matchId, currentUserId, otherName, initialMessages 
           className="bg-[#ff0050] hover:bg-[#ff337a] px-4"
           disabled={!input.trim() || isPending}
         >
-          {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+          <Send className="h-4 w-4" />
         </Button>
       </form>
     </div>

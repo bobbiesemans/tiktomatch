@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard, Sparkles, Megaphone, BarChart2, Settings,
-  Gift, Wallet, User, ChevronRight, MessageSquare, FileText, CreditCard,
+  Gift, Wallet, User, ChevronRight, MessageSquare, FileText,
 } from "lucide-react"
 
 const brandLinks = [
