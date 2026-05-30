@@ -127,11 +127,11 @@ export function PipelineBoard({ matches, subscriptionTier = "free" }: Props) {
       </div>
 
       {/* Kanban columns */}
-      <div className="flex gap-4 overflow-x-auto pb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 xl:flex xl:gap-4 xl:overflow-x-auto">
         {COLUMNS.map((col) => {
           const colMatches = filtered.filter((m) => getStatus(m) === col.status)
           return (
-            <div key={col.status} className="flex-shrink-0 w-72">
+            <div key={col.status} className="xl:flex-shrink-0 xl:w-72 min-w-0">
               {/* Column header */}
               <div className={`flex items-center justify-between px-3 py-2 rounded-t-xl ${col.bg}`}>
                 <span className={`text-sm font-semibold ${col.color}`}>{col.label}</span>

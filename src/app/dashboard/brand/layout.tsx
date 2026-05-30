@@ -26,9 +26,9 @@ export default async function BrandLayout({ children }: { children: React.ReactN
   const name = profile?.full_name || user.email?.split("@")[0] || "Gebruiker"
 
   return (
-    <div className="flex min-h-screen bg-[#f8f9fc]">
+    <div className="flex min-h-screen bg-[#f8f9fc] overflow-x-hidden">
       <DashboardSidebar type="brand" />
-      <div className="flex-1 lg:ml-60 flex flex-col min-h-screen">
+      <div className="flex-1 lg:ml-60 flex flex-col min-h-screen min-w-0">
         {/* Premium header */}
         <header className="h-16 bg-white/80 backdrop-blur-md border-b border-gray-200/60 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-30 shadow-sm">
           <div className="flex items-center gap-3 ml-12 lg:ml-0">
@@ -60,7 +60,7 @@ export default async function BrandLayout({ children }: { children: React.ReactN
           </div>
         </header>
 
-        <main className="flex-1 p-4 lg:p-8 pb-24 lg:pb-8 max-w-[1400px] w-full mx-auto">{children}</main>
+        <main className="flex-1 p-4 lg:p-8 pb-24 lg:pb-8 w-full max-w-[1400px] mx-auto overflow-x-hidden">{children}</main>
       </div>
     </div>
   )
