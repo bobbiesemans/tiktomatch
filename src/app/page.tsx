@@ -2,514 +2,618 @@ import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import WaitlistForm from "@/components/WaitlistForm"
 import PrijsKaart from "@/components/PrijsKaart"
+import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
+import { CreatorShowcase } from "@/components/home/creator-showcase"
 import {
-  Target, BarChart2, ShoppingBag, Users, Wallet, Globe,
-  CheckCircle, ArrowRight, Zap, Star, TrendingUp, Building2, Video,
-  Shield, CreditCard, BarChart, Lock, Euro, Package,
+  ArrowRight, CheckCircle, Zap, Star, TrendingUp, Building2, Video,
+  Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
+  Play, ChevronRight, Sparkles, CreditCard, Lock
 } from "lucide-react"
 
 export const metadata = {
   title: "TikToMatch — TikTok verkopers voor Belgische merken",
-  description: "Het eerste commissie-gebaseerde TikTok creator platform voor België. Merken betalen enkel bij resultaat. Creators verdienen per verkoop. TikToMatch regelt de betalingen.",
-  keywords: ["TikTok creators België", "TikTok Shop Belgium", "commissie model", "affiliate marketing TikTok"],
+  description: "Het eerste commissie-gebaseerde TikTok creator platform voor België. Betaal enkel bij resultaat.",
 }
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center bg-[#1a0533] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#ff0050]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
+      {/* ═══════════════════════════════════════
+          HERO
+      ═══════════════════════════════════════ */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Ambient glow blobs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 -left-40 w-[600px] h-[600px] bg-[#ff0050]/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-[#00d4c8]/15 rounded-full blur-[100px]" />
+          <div className="absolute top-3/4 left-1/3 w-[400px] h-[400px] bg-purple-900/20 rounded-full blur-[100px]" />
+        </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 py-32 w-full">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 text-[#ff0050] text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[#ff0050]/20">
-              <Zap className="h-3.5 w-3.5" />
-              Lancering 15 juni — TikTok Shopping Belgium
-            </div>
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.05] mb-6">
-              TikTok-verkopers<br />
-              <span className="text-[#ff0050]">die enkel betaald</span><br />
-              worden bij verkoop
-            </h1>
+        <div className="relative max-w-7xl mx-auto px-6 py-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT: text */}
+          <div>
+            <HeroText>
+              <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-sm font-semibold px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 bg-[#ff0050] rounded-full animate-pulse" />
+                Lancering 15 juni — TikTok Shopping Belgium
+              </div>
+            </HeroText>
 
-            <p className="text-xl text-white/60 max-w-xl mb-6 leading-relaxed">
-              Verbind jouw merk met bewezen TikTok-creators op commissiebasis.
-              Geen vast budget. Enkel betalen als er verkocht wordt.
-              Wij regelen alles — van matching tot uitbetaling.
-            </p>
+            <HeroText>
+              <h1 className="text-6xl md:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-6">
+                <span className="block text-white">TikTok-</span>
+                <span className="block bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent bg-[length:200%] animate-[shimmer_3s_ease-in-out_infinite]">
+                  verkopers
+                </span>
+                <span className="block text-white/90">die werken.</span>
+              </h1>
+            </HeroText>
 
-            {/* Value proposition pills */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              {[
-                { icon: Euro, text: "Commissie per verkoop" },
-                { icon: Shield, text: "Betalingen via TikToMatch" },
-                { icon: CreditCard, text: "Gratis voor creators" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-2 text-sm text-white/80">
-                  <Icon className="h-3.5 w-3.5 text-[#ff0050]" />
-                  {text}
+            <HeroText>
+              <p className="text-lg text-white/50 max-w-lg mb-8 leading-relaxed">
+                Commissiemodel. Geen vast budget. Enkel betalen als er verkocht wordt.
+                TikToMatch koppelt jou aan bewezen Belgische TikTok-creators
+                en regelt de volledige betalingsstroom.
+              </p>
+            </HeroText>
+
+            <HeroText>
+              <div className="flex flex-col sm:flex-row gap-3 mb-12">
+                <Link href="/auth/register"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-7 py-4 rounded-xl text-base transition-all shadow-2xl shadow-[#ff0050]/30 hover:shadow-[#ff0050]/50 hover:scale-[1.02]">
+                  Starten als merk
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link href="/auth/register"
+                  className="group inline-flex items-center justify-center gap-2 bg-white/8 hover:bg-white/12 text-white font-bold px-7 py-4 rounded-xl text-base transition-all border border-white/15 hover:border-white/30">
+                  <Video className="h-4 w-4 text-[#00d4c8]" />
+                  Ik ben een creator
+                  <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-white/60 transition-colors" />
+                </Link>
+              </div>
+            </HeroText>
+
+            {/* Stats */}
+            <FadeIn delay={0.4}>
+              <div className="flex flex-wrap gap-8">
+                {[
+                  { n: "500+", l: "Belgische creators" },
+                  { n: "€2.4M", l: "Commissie uitbetaald" },
+                  { n: "0€", l: "Vaste kosten creators" },
+                ].map(({ n, l }) => (
+                  <div key={l}>
+                    <div className="text-3xl font-black text-white">{n}</div>
+                    <div className="text-sm text-white/40 mt-0.5">{l}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* RIGHT: floating creator cards */}
+          <div className="hidden lg:flex items-center justify-center relative h-[520px]">
+            {/* Glow behind cards */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff0050]/10 to-[#00d4c8]/10 rounded-3xl blur-2xl" />
+
+            <FloatingCard delay={0} className="absolute top-8 left-8 w-52">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-black text-sm">LA</div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Laura V.</p>
+                    <p className="text-[10px] text-white/50">@laurabeauty_be</p>
+                  </div>
+                  <div className="ml-auto bg-white/15 rounded-full px-2 py-1">
+                    <span className="text-xs font-black text-white">87</span>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link href="/auth/register"
-                className="inline-flex items-center justify-center gap-2 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-2xl shadow-red-500/30">
-                Ik ben een merk
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link href="/auth/register"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold px-8 py-4 rounded-xl text-lg transition border border-white/20">
-                <Video className="h-5 w-5" />
-                Ik ben een creator
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-8">
-              {[
-                { getal: "500+", label: "Belgische TikTok-verkopers" },
-                { getal: "€2.4M", label: "Commissie uitbetaald" },
-                { getal: "0€", label: "Vaste kosten voor creators" },
-              ].map(({ getal, label }) => (
-                <div key={label}>
-                  <div className="text-3xl font-extrabold text-white">{getal}</div>
-                  <div className="text-sm text-white/50 mt-0.5">{label}</div>
+                <div className="flex gap-2">
+                  <div className="flex-1 bg-white/10 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-white">45.2K</p>
+                    <p className="text-[10px] text-white/40">volgers</p>
+                  </div>
+                  <div className="flex-1 bg-white/10 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-[#00d4c8]">€2.840</p>
+                    <p className="text-[10px] text-white/40">GMV/mnd</p>
+                  </div>
                 </div>
-              ))}
+              </div>
+            </FloatingCard>
+
+            <FloatingCard delay={0.5} className="absolute top-1/2 right-0 -translate-y-1/2 w-56">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-black text-sm">SK</div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Sarah K.</p>
+                    <p className="text-[10px] text-white/50">@fitgirl_leuven</p>
+                  </div>
+                  <div className="ml-auto bg-[#ff0050]/20 rounded-full px-2 py-1">
+                    <span className="text-xs font-black text-[#ff0050]">83</span>
+                  </div>
+                </div>
+                <div className="bg-green-500/15 rounded-xl p-2 flex items-center justify-between">
+                  <span className="text-xs text-green-400">Commissie @ 10%</span>
+                  <span className="text-xs font-bold text-green-400">€412/mnd</span>
+                </div>
+              </div>
+            </FloatingCard>
+
+            <FloatingCard delay={1} className="absolute bottom-12 left-12 w-48">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="h-4 w-4 text-[#ff0050]" />
+                  <span className="text-xs font-bold text-white">AI Match</span>
+                </div>
+                <p className="text-[10px] text-white/60 leading-relaxed">Perfect niche-match voor jouw producten. Bewezen verkoopkracht via TikTok Shop.</p>
+              </div>
+            </FloatingCard>
+
+            {/* Center card */}
+            <div className="relative z-10 w-60 bg-white/8 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="h-24 bg-gradient-to-br from-blue-600 to-violet-600 relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 border-4 border-white/20 flex items-center justify-center text-white font-black text-xl shadow-xl">AM</div>
+                </div>
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-bold text-white">Alex M.</p>
+                <p className="text-xs text-white/50 mb-3">@techbob_brussels</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/10 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-white">92.4K</p>
+                    <p className="text-[10px] text-white/40">volgers</p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-[#00d4c8]">€5.640</p>
+                    <p className="text-[10px] text-white/40">GMV/mnd</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
       </section>
 
-      {/* SOCIAL PROOF BAR */}
-      <section className="bg-gray-50 border-y border-gray-100 py-6 px-6">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
-          <span className="font-semibold text-gray-400 uppercase tracking-wide text-xs">Vertrouwd door</span>
-          {["TikTok Shop BE", "Belgische e-commerce", "D2C merken", "Kleine zelfstandigen"].map((name) => (
-            <div key={name} className="flex items-center gap-2">
-              <Building2 className="h-4 w-4 text-gray-300" />
-              <span className="font-medium text-gray-600">{name}</span>
+      {/* ═══════════════════════════════════════
+          TICKER
+      ═══════════════════════════════════════ */}
+      <section className="py-8 bg-[#0f0f0f] border-y border-white/5 overflow-hidden">
+        <div className="flex gap-12 items-center whitespace-nowrap animate-[marquee_25s_linear_infinite]">
+          {[...Array(3)].map((_, idx) => (
+            <div key={idx} className="flex gap-12 items-center shrink-0">
+              {[
+                { v: "500+", l: "Belgische TikTok-creators" },
+                { v: "€2.4M", l: "Uitbetaald in commissies" },
+                { v: "10%", l: "Gemiddelde commissie" },
+                { v: "0€", l: "Vaste kosten voor creators" },
+                { v: "2 weken", l: "Automatische uitbetaling" },
+                { v: "20%", l: "TikToMatch platformfee" },
+                { v: "AI", l: "Powered matching" },
+                { v: "NL & FR", l: "Belgische markt" },
+              ].map(({ v, l }) => (
+                <div key={l} className="flex items-center gap-4">
+                  <div>
+                    <span className="text-xl font-black text-[#ff0050]">{v}</span>
+                    <span className="text-sm text-white/30 ml-2">{l}</span>
+                  </div>
+                  <div className="w-1 h-1 bg-white/20 rounded-full" />
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </section>
 
-      {/* HOE HET WERKT */}
-      <section id="hoe-het-werkt" className="py-24 px-6 bg-white">
+      {/* ═══════════════════════════════════════
+          HOE HET WERKT
+      ═══════════════════════════════════════ */}
+      <section id="hoe-het-werkt" className="py-32 px-6 bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Hoe TikToMatch werkt</h2>
-            <p className="text-gray-500 text-lg">Voor merken én creators — alles via één platform</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Voor merken */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-[#1a0533]/8 text-[#1a0533] text-sm font-semibold px-4 py-2 rounded-full mb-8">
-                <Building2 className="h-4 w-4" />
-                Voor merken
-              </div>
-              <div className="space-y-8">
-                {[
-                  {
-                    n: "01",
-                    titel: "Abonneer en stel je commissiemodel in",
-                    tekst: "Bepaal welk percentage jij betaalt per verkoop (bv. 10% op €50 product). Geen vaste advertentiekosten — enkel commissie bij resultaat.",
-                  },
-                  {
-                    n: "02",
-                    titel: "Kies de juiste TikTok-verkopers",
-                    tekst: "Ons AI-algoritme selecteert creators op basis van echte verkoopdata (GMV), niet op volgersaantal. Zie precies wie jouw producten het beste verkoopt.",
-                  },
-                  {
-                    n: "03",
-                    titel: "Wij regelen alles daarna",
-                    tekst: "TikToMatch stelt het contract op, beheert de betalingsstroom en rapporteert de gerealiseerde omzet en commissies. Jij focust op je product.",
-                  },
-                ].map(({ n, titel, tekst }) => (
-                  <div key={n} className="flex gap-5">
-                    <div className="w-10 h-10 rounded-xl bg-[#1a0533] text-white font-bold text-sm flex items-center justify-center shrink-0">{n}</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-lg">{titel}</h3>
-                      <p className="text-gray-500 mt-1">{tekst}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Voor creators */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-[#ff0050]/10 text-[#ff0050] text-sm font-semibold px-4 py-2 rounded-full mb-8">
-                <Video className="h-4 w-4" />
-                Voor creators
-              </div>
-              <div className="space-y-8">
-                {[
-                  {
-                    n: "01",
-                    titel: "Deel je TikTok profiel — gratis",
-                    tekst: "Verbind je TikTok-account en deel je verkoopstatistieken. Aanmelden is altijd gratis. Geen abonnement, geen verborgen kosten.",
-                  },
-                  {
-                    n: "02",
-                    titel: "Ontvang productaanbiedingen op commissiebasis",
-                    tekst: "Merken selecteren jou en stellen een commissie% voor. Je ziet direct hoeveel je kan verdienen per verkoop — vóór je iets accepteert.",
-                  },
-                  {
-                    n: "03",
-                    titel: "Verkoop, wij storten jouw commissie",
-                    tekst: "Maak je TikTok-content, genereer sales via jouw unieke link. TikToMatch int bij het merk en betaalt jou elke 2 weken automatisch uit.",
-                  },
-                ].map(({ n, titel, tekst }) => (
-                  <div key={n} className="flex gap-5">
-                    <div className="w-10 h-10 rounded-xl bg-[#ff0050] text-white font-bold text-sm flex items-center justify-center shrink-0">{n}</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-lg">{titel}</h3>
-                      <p className="text-gray-500 mt-1">{tekst}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BETALINGSSTROOM */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Betalingen — volledig beheerd door ons</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Merken betalen nooit rechtstreeks aan creators. TikToMatch staat in het midden
-              en garandeert correcte uitbetalingen aan beide kanten.
+          <FadeUp className="text-center mb-20">
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Het model</p>
+            <h2 className="text-5xl font-black leading-tight mb-4">
+              Simpel. Eerlijk. <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">Resultaatgericht.</span>
+            </h2>
+            <p className="text-lg text-white/40 max-w-xl mx-auto">
+              Geen vaste advertentiekosten. Creators verdienen enkel als ze verkopen. TikToMatch beheert alles daartussenin.
             </p>
-          </div>
+          </FadeUp>
 
-          {/* Payment flow diagram */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
-            {[
-              {
-                icon: Building2,
-                label: "Merk",
-                sub: "Betaalt commissie + abonnement",
-                color: "bg-[#1a0533]",
-              },
-              null,
-              {
-                icon: Shield,
-                label: "TikToMatch",
-                sub: "Beheert & verdeelt betalingen",
-                color: "bg-[#ff0050]",
-                featured: true,
-              },
-              null,
-              {
-                icon: Video,
-                label: "Creator",
-                sub: "Ontvangt commissie automatisch",
-                color: "bg-green-600",
-              },
-            ].map((item, i) => {
-              if (!item) return (
-                <div key={i} className="hidden md:flex items-center">
-                  <ArrowRight className="h-8 w-8 text-gray-300" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* For brands */}
+            <ScaleIn delay={0.1}>
+              <div className="bg-[#111] border border-white/8 rounded-3xl p-8 h-full">
+                <div className="inline-flex items-center gap-2 bg-white/8 text-sm font-bold px-4 py-2 rounded-full mb-8">
+                  <Building2 className="h-4 w-4 text-[#ff0050]" />
+                  <span className="text-white">Voor merken</span>
                 </div>
-              )
-              const Icon = item.icon
-              return (
-                <div key={item.label} className={`flex flex-col items-center p-6 rounded-2xl border-2 w-48 text-center ${item.featured ? "border-[#ff0050] shadow-xl shadow-red-100 scale-105" : "border-gray-200 bg-white"}`}>
-                  <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center mb-3`}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </div>
-                  <p className="font-bold text-gray-900">{item.label}</p>
-                  <p className="text-xs text-gray-500 mt-1">{item.sub}</p>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Example calculation */}
-          <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-6">
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Voorbeeld berekening</p>
-            <div className="space-y-3 text-sm">
-              {[
-                { label: "Product verkoopprijs", value: "€ 49,99", color: "text-gray-900" },
-                { label: "Commissie merk instelt (10%)", value: "€ 5,00", color: "text-gray-900" },
-                { label: "TikToMatch platformfee (20% van commissie)", value: "- € 1,00", color: "text-red-500" },
-                { label: "Creator ontvangt per verkoop", value: "€ 4,00", color: "text-green-600 font-bold text-base" },
-              ].map(({ label, value, color }) => (
-                <div key={label} className="flex items-center justify-between border-b border-gray-50 pb-2 last:border-0">
-                  <span className="text-gray-600">{label}</span>
-                  <span className={color}>{value}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-4">Bij 100 verkopen per maand = €400 voor de creator. Bij 1.000 verkopen = €4.000.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* VOOR KLEINE ZELFSTANDIGEN */}
-      <section className="py-24 px-6 bg-[#1a0533]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 text-[#ff0050] text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-[#ff0050]/20">
-                <Package className="h-3.5 w-3.5" />
-                Ook voor kleine merken
-              </div>
-              <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
-                Kleine zelfstandige?<br />
-                <span className="text-[#ff0050]">TikTok Shop</span> is jouw kans.
-              </h2>
-              <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                Je hoeft geen grote advertentiebudgetten te hebben. Een goede creator
-                met de juiste niche verkoopt jouw producten beter dan elke reclame —
-                en jij betaalt enkel als er effectief verkocht wordt.
-              </p>
-              <div className="space-y-4">
-                {[
-                  "Geen minimum advertentiebudget",
-                  "Creators voorzien zelf de content",
-                  "Jij levert de producten, zij verkopen",
-                  "Volledig transparante commissie-afrekening",
-                ].map((f) => (
-                  <div key={f} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-[#ff0050] shrink-0" />
-                    <span className="text-white/80 text-sm">{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-4">
-              {[
-                { icon: BarChart, titel: "Verkoopdata, niet bereik", tekst: "Wij selecteren creators op basis van hun TikTok Shop GMV — hoeveel ze effectief verkopen — niet op hun volgersaantal." },
-                { icon: Lock, titel: "Platform-only contact", tekst: "Alle communicatie en contracten verlopen via TikToMatch. Directe afspraken buiten het platform zijn verboden en beschermd." },
-                { icon: CreditCard, titel: "Automatische uitbetalingen", tekst: "Elke 2 weken worden commissies automatisch verrekend. Geen handmatige overschrijvingen, geen discussies." },
-              ].map(({ icon: Icon, titel, tekst }) => (
-                <div key={titel} className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-9 h-9 bg-[#ff0050]/15 rounded-lg flex items-center justify-center shrink-0">
-                      <Icon className="h-4 w-4 text-[#ff0050]" />
+                <div className="space-y-6">
+                  {[
+                    { n: "01", t: "Abonneer & stel commissie in", d: "Bepaal jouw commissie% per verkoop. Geen vast advertentiebudget — enkel betalen bij resultaat." },
+                    { n: "02", t: "Browse gescreende verkopers", d: "AI selecteert creators op basis van echte GMV-data, niet volgersaantal. Filter op niche, regio en taal." },
+                    { n: "03", t: "Wij regelen de rest", d: "Contract, betalingen, commissie-tracking — volledig via TikToMatch. Jij focust op je product." },
+                  ].map(({ n, t, d }) => (
+                    <div key={n} className="flex gap-4 items-start">
+                      <div className="w-9 h-9 rounded-xl bg-[#ff0050]/15 border border-[#ff0050]/30 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-black text-[#ff0050]">{n}</span>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-white text-sm mb-1">{t}</h3>
+                        <p className="text-sm text-white/40 leading-relaxed">{d}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-white text-sm mb-1">{titel}</p>
-                      <p className="text-white/50 text-xs leading-relaxed">{tekst}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI MATCHING */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#ff0050]/10 text-[#ff0050] text-sm font-semibold px-4 py-2 rounded-full mb-6">
-              <Zap className="h-3.5 w-3.5" />
-              Powered by Claude AI
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Matching op verkoopdata</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Ons algoritme analyseert 6 criteria om de perfecte match te vinden.
-              Focust op wie écht verkoopt — niet wie de meeste volgers heeft.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { icon: ShoppingBag, titel: "Verkoopkracht (GMV)", pts: "20pt", tekst: "Hoeveel heeft de creator effectief verkocht via TikTok Shop?" },
-              { icon: Target, titel: "Niche-match", pts: "30pt", tekst: "Sluiten de niches aan bij jouw productcategorie?" },
-              { icon: BarChart2, titel: "Engagement kwaliteit", pts: "20pt", tekst: "Echte interactie vs gekochte volgers" },
-              { icon: Users, titel: "Doelgroep-match", pts: "15pt", tekst: "Leeftijd, geslacht en regio van de volgers" },
-              { icon: Wallet, titel: "Commissie vs verwacht rendement", pts: "10pt", tekst: "Is de gevraagde commissie realistisch voor het product?" },
-              { icon: Globe, titel: "Taal en regio", pts: "5pt", tekst: "NL, FR of tweetalig — belgische markt specifiek" },
-            ].map(({ icon: Icon, titel, pts, tekst }) => (
-              <div key={titel} className="bg-gray-50 hover:bg-[#1a0533]/3 border border-gray-100 rounded-2xl p-5 transition">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-9 h-9 bg-[#1a0533]/8 rounded-lg flex items-center justify-center">
-                    <Icon className="h-4 w-4 text-[#1a0533]" />
-                  </div>
-                  <span className="text-xs font-bold text-[#ff0050] bg-[#ff0050]/10 px-2 py-0.5 rounded-full">{pts}</span>
-                </div>
-                <p className="font-semibold text-gray-900 text-sm mb-1">{titel}</p>
-                <p className="text-gray-500 text-xs">{tekst}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Wat ze zeggen</h2>
-            <p className="text-gray-500">Early adopters over TikToMatch</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "We zetten onze schoenen op TikToMatch. Binnen de week hadden we 3 creators die op commissiebasis voor ons aan de slag gingen. Geen vast budget, enkel betalen bij verkoop.",
-                naam: "Sarah V.",
-                rol: "Zaakvoerder, Belgische schoenenzaak",
-                rating: 5,
-              },
-              {
-                quote: "Ik verdien nu per product dat ik verkoop. Vorige maand 847 verkopen — TikToMatch stortte mijn commissie automatisch. Geen gedoe, geen facturatie.",
-                naam: "Thomas D.",
-                rol: "TikTok creator, 85K volgers, Gent",
-                rating: 5,
-              },
-              {
-                quote: "Als kleine zelfstandige kon ik nooit betalen voor influencer marketing. Met commissiemodel kan ik nu samenwerken met echte TikTok-verkopers zonder risico.",
-                naam: "Julie M.",
-                rol: "Zelfstandige, beauty producten, Brussel",
-                rating: 5,
-              },
-            ].map((t) => (
-              <div key={t.naam} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-600 text-sm mb-5 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#1a0533] flex items-center justify-center text-white text-xs font-bold">
-                    {t.naam.slice(0, 2).toUpperCase()}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{t.naam}</p>
-                    <p className="text-xs text-gray-400">{t.rol}</p>
-                  </div>
+              </div>
+            </ScaleIn>
+
+            {/* For creators */}
+            <ScaleIn delay={0.2}>
+              <div className="bg-[#111] border border-white/8 rounded-3xl p-8 h-full">
+                <div className="inline-flex items-center gap-2 bg-white/8 text-sm font-bold px-4 py-2 rounded-full mb-8">
+                  <Video className="h-4 w-4 text-[#00d4c8]" />
+                  <span className="text-white">Voor creators</span>
+                </div>
+                <div className="space-y-6">
+                  {[
+                    { n: "01", t: "Gratis profiel aanmaken", d: "Voeg je TikTok-profiel toe. Deel je statistieken. Aanmelden is altijd gratis — geen abonnement." },
+                    { n: "02", t: "Ontvang aanbiedingen op maat", d: "Merken kiezen jou. Zie exact hoeveel commissie je verdient per verkoop vóór je iets accepteert." },
+                    { n: "03", t: "Verkoop & word automatisch betaald", d: "Genereer sales via jouw unieke link. TikToMatch int bij het merk en betaalt jou elke 2 weken." },
+                  ].map(({ n, t, d }) => (
+                    <div key={n} className="flex gap-4 items-start">
+                      <div className="w-9 h-9 rounded-xl bg-[#00d4c8]/10 border border-[#00d4c8]/20 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-black text-[#00d4c8]">{n}</span>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-white text-sm mb-1">{t}</h3>
+                        <p className="text-sm text-white/40 leading-relaxed">{d}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+            </ScaleIn>
           </div>
         </div>
       </section>
 
-      {/* PRIJZEN */}
-      <section id="prijzen" className="py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Transparante prijzen</h2>
-            <p className="text-gray-500 text-lg">Maandabonnement voor toegang tot het platform + commissie bij verkoop</p>
-          </div>
-
-          {/* Pricing model explanation */}
-          <div className="max-w-3xl mx-auto mb-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-[#1a0533]/5 rounded-2xl p-5 border border-[#1a0533]/10">
-              <Building2 className="h-5 w-5 text-[#1a0533] mb-3" />
-              <p className="font-semibold text-gray-900 text-sm mb-1">Voor merken</p>
-              <p className="text-xs text-gray-500 leading-relaxed">Maandelijks abonnement voor toegang tot creator database + commissie op sales (door jou te bepalen, bv. 10%).</p>
-            </div>
-            <div className="bg-[#ff0050]/5 rounded-2xl p-5 border border-[#ff0050]/10">
-              <Video className="h-5 w-5 text-[#ff0050] mb-3" />
-              <p className="font-semibold text-gray-900 text-sm mb-1">Voor creators</p>
-              <p className="text-xs text-gray-500 leading-relaxed">Volledig gratis. Jij bepaalt welke aanbiedingen je aanvaardt. TikToMatch houdt 20% in van jouw commissie als platformfee.</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <PrijsKaart
-              naam="Starter"
-              prijs={49}
-              beschrijving="Voor kleine merken & zelfstandigen"
-              features={[
-                "Toegang tot creator database",
-                "Tot 5 actieve campagnes",
-                "50 creator-matches/mnd",
-                "Basis commissie-rapportage",
-                "E-mail support",
-              ]}
-              plan="starter"
-              highlighted={false}
-            />
-            <PrijsKaart
-              naam="Pro"
-              prijs={99}
-              beschrijving="Voor groeiende merken"
-              features={[
-                "Onbeperkte campagnes",
-                "Onbeperkte matches",
-                "Geavanceerde verkoopanalytics",
-                "Prioritaire AI-matching",
-                "Telefoon support",
-              ]}
-              plan="pro"
-              highlighted={true}
-            />
-            <PrijsKaart
-              naam="Agency"
-              prijs={249}
-              beschrijving="Voor agencies & grote merken"
-              features={[
-                "Alles in Pro",
-                "Tot 10 merkaccounts",
-                "White-label dashboard",
-                "Dedicated accountmanager",
-                "SLA garantie",
-              ]}
-              plan="agency"
-              highlighted={false}
-            />
-          </div>
-
-          <div className="mt-8 p-5 bg-gray-50 rounded-2xl border border-gray-100 flex items-start gap-3 max-w-2xl mx-auto">
-            <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-600">
-              <strong>Creator?</strong> Aanmelden is altijd gratis. TikToMatch houdt 20% van de commissie in als platformfee. Geen abonnement, geen verborgen kosten.
+      {/* ═══════════════════════════════════════
+          CREATOR SHOWCASE
+      ═══════════════════════════════════════ */}
+      <section className="py-32 px-6 bg-[#080808]">
+        <div className="max-w-6xl mx-auto">
+          <FadeUp className="text-center mb-16">
+            <p className="text-sm font-bold text-[#00d4c8] tracking-[0.2em] uppercase mb-4">Echte profielen</p>
+            <h2 className="text-5xl font-black mb-4">
+              Belgische TikTok-<span className="bg-gradient-to-r from-[#00d4c8] to-[#00a8a3] bg-clip-text text-transparent">verkopers</span>
+            </h2>
+            <p className="text-lg text-white/40 max-w-lg mx-auto">
+              Geverifieerde GMV-data. Echte engagement. Bewezen verkopers op de Belgische markt.
             </p>
-          </div>
+          </FadeUp>
+          <CreatorShowcase />
+          <FadeUp delay={0.4} className="text-center mt-12">
+            <Link href="/auth/register"
+              className="inline-flex items-center gap-2 text-sm font-bold text-white/60 hover:text-white transition-colors border border-white/15 hover:border-white/30 px-6 py-3 rounded-full">
+              Bekijk alle 500+ creators
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </FadeUp>
         </div>
       </section>
 
-      {/* WAITLIST */}
-      <section id="waitlist" className="py-24 px-6 bg-[#1a0533]">
-        <div className="max-w-lg mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 text-[#ff0050] text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-[#ff0050]/20">
-            <TrendingUp className="h-3.5 w-3.5" />
-            Vroege toegang
-          </div>
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Schrijf je in voor de waitlist
-          </h2>
-          <p className="text-white/60 mb-10 text-lg">
-            Early adopters krijgen <strong className="text-white">3 maanden gratis Pro</strong> bij lancering op 15 juni.
-          </p>
-          <WaitlistForm />
+      {/* ═══════════════════════════════════════
+          BETALINGSSTROOM
+      ═══════════════════════════════════════ */}
+      <section className="py-32 px-6 bg-[#0a0a0a] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#ff0050]/8 rounded-full blur-[100px]" />
         </div>
-      </section>
+        <div className="max-w-5xl mx-auto relative">
+          <FadeUp className="text-center mb-20">
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Betalingen</p>
+            <h2 className="text-5xl font-black mb-4">
+              Wij staan in het <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">midden</span>
+            </h2>
+            <p className="text-lg text-white/40 max-w-2xl mx-auto">
+              Merken betalen nooit rechtstreeks aan creators. TikToMatch garandeert correcte uitbetaling aan beide kanten.
+            </p>
+          </FadeUp>
 
-      {/* FOOTER */}
-      <footer className="py-12 px-6 bg-[#0f0220] text-white/40 text-sm">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-[#ff0050] rounded-lg flex items-center justify-center">
-              <Zap className="h-3.5 w-3.5 text-white" />
+          {/* Flow */}
+          <FadeUp delay={0.2}>
+            <div className="flex flex-col md:flex-row items-center gap-4 mb-16">
+              {[
+                { icon: Building2, label: "Merk", sub: "Betaalt maandabonnement + commissie", color: "border-white/15 bg-white/5", accent: "text-white" },
+                "arrow",
+                { icon: Shield, label: "TikToMatch", sub: "Verwerkt & beschermt betalingen", color: "border-[#ff0050]/40 bg-[#ff0050]/10", accent: "text-[#ff0050]", featured: true },
+                "arrow",
+                { icon: Video, label: "Creator", sub: "Ontvangt commissie elke 2 weken", color: "border-[#00d4c8]/30 bg-[#00d4c8]/8", accent: "text-[#00d4c8]" },
+              ].map((item, i) => {
+                if (item === "arrow") return (
+                  <div key={i} className="hidden md:flex items-center">
+                    <ArrowRight className="h-6 w-6 text-white/20" />
+                  </div>
+                )
+                if (typeof item === "string") return null
+                const Icon = item.icon
+                return (
+                  <div key={item.label} className={`flex-1 border ${item.color} rounded-2xl p-6 text-center ${item.featured ? "scale-105 shadow-2xl shadow-[#ff0050]/10" : ""}`}>
+                    <div className={`w-12 h-12 rounded-xl border ${item.color} flex items-center justify-center mx-auto mb-3`}>
+                      <Icon className={`h-6 w-6 ${item.accent}`} />
+                    </div>
+                    <p className={`font-black text-lg ${item.accent}`}>{item.label}</p>
+                    <p className="text-xs text-white/30 mt-1 leading-relaxed">{item.sub}</p>
+                  </div>
+                )
+              })}
             </div>
-            <span className="text-white font-bold">TikToMatch</span>
+          </FadeUp>
+
+          {/* Calculation */}
+          <FadeUp delay={0.3}>
+            <div className="bg-[#111] border border-white/8 rounded-3xl p-8 max-w-lg mx-auto">
+              <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-6">Voorbeeld — Schoenen €49,99</p>
+              <div className="space-y-3">
+                {[
+                  { l: "Verkoopprijs product", v: "€ 49,99", c: "text-white" },
+                  { l: "Commissie ingesteld door merk (10%)", v: "€ 5,00", c: "text-white" },
+                  { l: "TikToMatch platformfee (20% van commissie)", v: "− € 1,00", c: "text-red-400" },
+                  { l: "Creator ontvangt per verkoop", v: "€ 4,00", c: "text-[#00d4c8] text-lg font-black" },
+                ].map(({ l, v, c }) => (
+                  <div key={l} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
+                    <span className="text-sm text-white/50">{l}</span>
+                    <span className={`text-sm font-bold ${c}`}>{v}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="text-xs text-white/25">100 verkopen/mnd = <span className="text-white/50 font-bold">€400 voor de creator</span></p>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          AI MATCHING
+      ═══════════════════════════════════════ */}
+      <section className="py-32 px-6 bg-[#080808]">
+        <div className="max-w-5xl mx-auto">
+          <FadeUp className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/8 border border-white/12 text-sm font-bold px-4 py-2 rounded-full mb-6">
+              <Zap className="h-3.5 w-3.5 text-[#ff0050]" />
+              <span>Powered by Claude AI</span>
+            </div>
+            <h2 className="text-5xl font-black mb-4">
+              Matching op <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">verkoopdata</span>
+            </h2>
+            <p className="text-lg text-white/40 max-w-xl mx-auto">
+              Niet op bereik. Niet op esthetiek. Op wie effectief verkoopt.
+            </p>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { icon: ShoppingBag, t: "Verkoopkracht", pts: "20pt", d: "GMV, TikTok Shop verkopen — hoeveel verkopen ze écht?", c: "from-emerald-500/20 to-teal-500/20", border: "border-emerald-500/20" },
+              { icon: Target, t: "Niche-match", pts: "30pt", d: "Sluiten de content-niches aan bij jouw productcategorie?", c: "from-[#ff0050]/20 to-rose-500/20", border: "border-[#ff0050]/20" },
+              { icon: BarChart2, t: "Engagement kwaliteit", pts: "20pt", d: "Echte interactie vs gekochte likes — kwalitatief bereik.", c: "from-violet-500/20 to-purple-500/20", border: "border-violet-500/20" },
+              { icon: Users, t: "Doelgroep-match", pts: "15pt", d: "Leeftijd, geslacht en regio van de volgers.", c: "from-blue-500/20 to-cyan-500/20", border: "border-blue-500/20" },
+              { icon: Euro, t: "Commissie vs ROI", pts: "10pt", d: "Is de gevraagde commissie realistisch voor dit product?", c: "from-amber-500/20 to-orange-500/20", border: "border-amber-500/20" },
+              { icon: Globe, t: "Taal & regio", pts: "5pt", d: "NL, FR of tweetalig — specifiek voor de Belgische markt.", c: "from-[#00d4c8]/20 to-teal-500/20", border: "border-[#00d4c8]/20" },
+            ].map(({ icon: Icon, t, pts, d, c, border }) => (
+              <StaggerItem key={t}>
+                <div className={`bg-gradient-to-br ${c} border ${border} rounded-2xl p-5 h-full hover:scale-[1.02] transition-transform cursor-default`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
+                      <Icon className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-xs font-black text-white bg-white/10 px-2 py-0.5 rounded-full">{pts}</span>
+                  </div>
+                  <p className="font-bold text-white text-sm mb-1.5">{t}</p>
+                  <p className="text-white/40 text-xs leading-relaxed">{d}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          VOOR KLEINE ZELFSTANDIGEN
+      ═══════════════════════════════════════ */}
+      <section className="py-32 px-6 bg-white text-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <FadeUp>
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-6">Ook voor kleine merken</p>
+            <h2 className="text-5xl font-black leading-tight text-gray-900 mb-6">
+              Kleine zelfstandige?<br />
+              <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">TikTok Shop</span><br />
+              is jouw kans.
+            </h2>
+            <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+              Geen groot advertentiebudget nodig. Een goede TikTok-verkoper met de juiste niche
+              verkoopt jouw producten beter dan elke reclame — en jij betaalt enkel als er verkocht wordt.
+            </p>
+            <div className="space-y-3">
+              {[
+                "Geen minimum advertentiebudget",
+                "Creators leveren zelf de content",
+                "Jij levert producten, zij verkopen",
+                "Transparante commissie-afrekening",
+                "Automatische uitbetaling elke 2 weken",
+              ].map((f) => (
+                <div key={f} className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-[#ff0050] shrink-0" />
+                  <span className="text-gray-700 font-medium">{f}</span>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
+
+          <ScaleIn delay={0.2}>
+            <div className="space-y-4">
+              {[
+                { icon: ShoppingBag, t: "Verkoopdata, niet bereik", d: "Wij selecteren op TikTok Shop GMV. Wie verkoopt het meest in jouw niche?" },
+                { icon: Lock, t: "Platform-only communicatie", d: "Alle contacten en contracten via TikToMatch. Directe afspraken buiten het platform zijn verboden." },
+                { icon: CreditCard, t: "Automatische uitbetalingen", d: "Elke 2 weken commissies verrekend. Geen handmatige overschrijvingen, geen discussies." },
+                { icon: Package, t: "Producten bezorgen, wij doen de rest", d: "Bezorg samples/producten aan de creator. Wij regelen briefing, contract en betaling." },
+              ].map(({ icon: Icon, t, d }) => (
+                <div key={t} className="flex gap-4 p-5 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-colors group border border-gray-100 hover:border-gray-200">
+                  <div className="w-10 h-10 bg-[#ff0050]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#ff0050]/15 transition-colors">
+                    <Icon className="h-5 w-5 text-[#ff0050]" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{t}</p>
+                    <p className="text-xs text-gray-500 leading-relaxed">{d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScaleIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          TESTIMONIALS
+      ═══════════════════════════════════════ */}
+      <section className="py-32 px-6 bg-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto">
+          <FadeUp className="text-center mb-16">
+            <h2 className="text-5xl font-black mb-3">Wat ze zeggen</h2>
+            <p className="text-white/40">Early adopters over TikToMatch</p>
+          </FadeUp>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { q: "We zetten onze schoenen op TikToMatch. Binnen de week hadden we 3 creators op commissiebasis. Geen vast budget, enkel betalen bij verkoop.", n: "Sarah V.", r: "Zaakvoerder, schoenenzaak", stars: 5 },
+              { q: "Ik verdien nu per product dat ik verkoop. Vorige maand 847 verkopen — TikToMatch stortte mijn commissie automatisch. Geen gedoe, geen facturatie.", n: "Thomas D.", r: "Creator, 85K volgers, Gent", stars: 5 },
+              { q: "Als kleine zelfstandige kon ik nooit betalen voor influencer marketing. Nu werk ik samen met echte TikTok-verkopers zonder financieel risico.", n: "Julie M.", r: "Zelfstandige, beauty, Brussel", stars: 5 },
+            ].map((t, i) => (
+              <StaggerItem key={t.n}>
+                <div className="bg-[#111] border border-white/8 rounded-2xl p-6 h-full hover:border-white/15 transition-colors">
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: t.stars }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-white/70 text-sm leading-relaxed mb-6">&ldquo;{t.q}&rdquo;</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#ff0050] to-[#ff6b9d] flex items-center justify-center text-white text-xs font-black">
+                      {t.n.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-sm">{t.n}</p>
+                      <p className="text-xs text-white/30">{t.r}</p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          PRIJZEN
+      ═══════════════════════════════════════ */}
+      <section id="prijzen" className="py-32 px-6 bg-[#080808]">
+        <div className="max-w-5xl mx-auto">
+          <FadeUp className="text-center mb-6">
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Prijzen</p>
+            <h2 className="text-5xl font-black mb-4">Transparant & eerlijk</h2>
+            <p className="text-white/40 text-lg mb-12">Maandabonnement voor toegang + commissie % op sales (door jou te bepalen)</p>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <PrijsKaart naam="Starter" prijs={49} beschrijving="Voor kleine merken & zelfstandigen"
+              features={["Toegang tot creator database", "5 actieve campagnes", "50 AI-matches/mnd", "Basis commissie-rapportage", "E-mail support"]}
+              plan="starter" highlighted={false} />
+            <PrijsKaart naam="Pro" prijs={99} beschrijving="Voor groeiende merken"
+              features={["Onbeperkte campagnes", "Onbeperkte matches", "Geavanceerde verkoopanalytics", "Prioritaire AI-matching", "Telefoon support"]}
+              plan="pro" highlighted={true} />
+            <PrijsKaart naam="Agency" prijs={249} beschrijving="Voor agencies & grote merken"
+              features={["Alles in Pro", "Tot 10 merkaccounts", "White-label dashboard", "Dedicated accountmanager", "SLA garantie"]}
+              plan="agency" highlighted={false} />
           </div>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition">Privacy</Link>
-            <Link href="/voorwaarden" className="hover:text-white transition">Voorwaarden</Link>
-            <a href="mailto:hello@tiktomatch.be" className="hover:text-white transition">Contact</a>
+
+          <FadeIn>
+            <div className="flex items-start gap-3 p-5 bg-[#00d4c8]/8 border border-[#00d4c8]/20 rounded-2xl max-w-xl mx-auto">
+              <CheckCircle className="h-5 w-5 text-[#00d4c8] shrink-0 mt-0.5" />
+              <p className="text-sm text-white/60">
+                <strong className="text-white">Creator?</strong> Aanmelden is altijd gratis.
+                TikToMatch houdt 20% in van jouw commissie. Geen maandelijkse kosten.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          CTA / WAITLIST
+      ═══════════════════════════════════════ */}
+      <section id="waitlist" className="relative py-32 px-6 bg-[#0a0a0a] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff0050]/12 rounded-full blur-[120px]" />
+        </div>
+        <div className="relative max-w-xl mx-auto text-center">
+          <FadeUp>
+            <div className="inline-flex items-center gap-2 bg-white/8 border border-white/12 text-sm font-bold px-4 py-2 rounded-full mb-8">
+              <TrendingUp className="h-3.5 w-3.5 text-[#ff0050]" />
+              Vroege toegang
+            </div>
+            <h2 className="text-5xl font-black mb-4 leading-tight">
+              Klaar om te<br />
+              <span className="bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent">lanceren?</span>
+            </h2>
+            <p className="text-white/40 mb-10 text-lg leading-relaxed">
+              Early adopters krijgen <strong className="text-white">3 maanden gratis Pro</strong> bij lancering op 15 juni.
+            </p>
+            <WaitlistForm />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          FOOTER
+      ═══════════════════════════════════════ */}
+      <footer className="py-12 px-6 bg-[#050505] border-t border-white/5">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 bg-[#ff0050] rounded-xl flex items-center justify-center">
+              <Zap className="h-4 w-4 text-white" />
+            </div>
+            <span className="font-black text-white text-lg">TikToMatch</span>
           </div>
-          <span>© 2025 TikToMatch. Alle rechten voorbehouden.</span>
+          <div className="flex gap-8 text-sm text-white/30">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/voorwaarden" className="hover:text-white transition-colors">Voorwaarden</Link>
+            <a href="mailto:hello@tiktomatch.be" className="hover:text-white transition-colors">Contact</a>
+          </div>
+          <span className="text-sm text-white/20">© 2025 TikToMatch</span>
         </div>
       </footer>
+
+      {/* Global CSS voor marquee + shimmer */}
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-33.333%); }
+        }
+        @keyframes shimmer {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
     </div>
   )
 }
