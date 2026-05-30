@@ -12,7 +12,7 @@ import {
 } from "lucide-react"
 
 export const metadata = {
-  title: "TikToMatch — TikTok verkopers voor Belgische merken",
+  title: "TikToMatch — Belgische TikTok-creators voor jouw merk",
   description: "Het eerste commissie-gebaseerde TikTok creator platform voor België. Betaal enkel bij resultaat.",
 }
 
@@ -55,11 +55,11 @@ export default function LandingPage() {
 
             <HeroText>
               <h1 className="text-6xl md:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-6">
-                <span className="block text-white">TikTok-</span>
+                <span className="block text-white">Belgische</span>
                 <span className="block bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent bg-[length:200%] animate-[shimmer_3s_ease-in-out_infinite]">
-                  verkopers
+                  TikTok-creators
                 </span>
-                <span className="block text-white/90">die werken.</span>
+                <span className="block text-white/90">voor jouw merk.</span>
               </h1>
             </HeroText>
 
@@ -380,7 +380,7 @@ export default function LandingPage() {
                 <div className="space-y-6">
                   {[
                     { n: "01", t: "Abonneer & stel je commissie% in", d: "Marktstandaard: 10–15% open samenwerking, 18–30% exclusief. Dit is identiek aan hoe het werkt in de UK, VS en Duitsland. Geen vast advertentiebudget — enkel betalen bij resultaat." },
-                    { n: "02", t: "Kies uit gescreende TikTok-verkopers", d: "AI matcht op GMV (echte TikTok Shop-verkoopcijfers), engagement en niche. Bewezen model: platformen zoals Cruva (VS) en Collabstr (UK) werken exact zo." },
+                    { n: "02", t: "Kies uit gescreende Belgische creators", d: "AI matcht op GMV (echte TikTok Shop-verkoopcijfers), engagement en niche. Bewezen model: platformen zoals Cruva (VS) en Collabstr (UK) werken exact zo." },
                     { n: "03", t: "Wij regelen alles daarna", d: "TikToMatch beheert contract, commissie-tracking en betalingen. Creators ontvangen hun commissie 15 dagen na levering — conform TikTok Shop-standaard wereldwijd." },
                   ].map(({ n, t, d }) => (
                     <div key={n} className="flex gap-4 items-start">
@@ -435,10 +435,10 @@ export default function LandingPage() {
           <FadeUp className="text-center mb-16">
             <p className="text-sm font-bold text-[#00d4c8] tracking-[0.2em] uppercase mb-4">Echte profielen</p>
             <h2 className="text-5xl font-black mb-4">
-              Belgische TikTok-<span className="bg-gradient-to-r from-[#00d4c8] to-[#00a8a3] bg-clip-text text-transparent">verkopers</span>
+              Belgische TikTok-<span className="bg-gradient-to-r from-[#00d4c8] to-[#00a8a3] bg-clip-text text-transparent">creators</span>
             </h2>
             <p className="text-lg text-white/40 max-w-lg mx-auto">
-              Geverifieerde GMV-data. Echte engagement. Bewezen verkopers op de Belgische markt.
+              Geverifieerde GMV-data. Echte engagement. Bewezen creators op de Belgische markt.
             </p>
           </FadeUp>
           <CreatorShowcase />
