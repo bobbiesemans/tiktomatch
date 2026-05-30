@@ -99,9 +99,9 @@ export default function LandingPage() {
             <FadeIn delay={0.4}>
               <div className="flex flex-wrap gap-8">
                 {[
+                  { n: "$112B", l: "TikTok Shop GMV wereldwijd in 2026" },
                   { n: "4,3M", l: "TikTok-gebruikers in België" },
-                  { n: "€24B+", l: "Belgische e-commerce markt" },
-                  { n: "0€", l: "Vaste kosten voor creators" },
+                  { n: "15M+", l: "Actieve verkopers op TikTok Shop" },
                 ].map(({ n, l }) => (
                   <div key={l}>
                     <div className="text-3xl font-black text-white">{n}</div>
@@ -208,14 +208,14 @@ export default function LandingPage() {
           {[...Array(3)].map((_, idx) => (
             <div key={idx} className="flex gap-12 items-center shrink-0">
               {[
+                { v: "$112B", l: "TikTok Shop GMV wereldwijd (2026)" },
                 { v: "4,3M", l: "TikTok-gebruikers in België" },
                 { v: "€24B+", l: "Belgische e-commerce markt" },
                 { v: "15 juni", l: "TikTok Shop Belgium go-live" },
-                { v: "5–30%", l: "Creator commissie per verkoop" },
-                { v: "0€", l: "Vaste kosten voor creators" },
+                { v: "10–15%", l: "Gemiddelde creator commissie" },
                 { v: "15 dagen", l: "Uitbetaling na levering" },
-                { v: "100K+", l: "EU-bedrijven op TikTok Shop" },
-                { v: "NL & FR", l: "Belgische markt" },
+                { v: "15M+", l: "Actieve verkopers op TikTok Shop" },
+                { v: "53%", l: "Belgische TikTok-gebruikers vrouw" },
               ].map(({ v, l }) => (
                 <div key={l} className="flex items-center gap-4">
                   <div>
@@ -379,9 +379,9 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { n: "01", t: "Abonneer & stel je commissie% in", d: "Bepaal welke commissie jij betaalt per verkoop (bv. 10%). Geen vast advertentiebudget. Nieuwe TikTok Shop-verkopers starten met een introductietarief van 4% bij TikTok — daarna 9%." },
-                    { n: "02", t: "Kies creators op echte verkoopdata", d: "AI selecteert op basis van GMV (TikTok Shop verkoopcijfers), niet op volgersaantal. Filter op niche, regio (NL/FR) en engagement." },
-                    { n: "03", t: "Wij regelen alles daarna", d: "TikToMatch beheert contracten, commissie-tracking en betalingen. Creators worden uitbetaald 15 dagen na levering. Jij focust op je product." },
+                    { n: "01", t: "Abonneer & stel je commissie% in", d: "Marktstandaard: 10–15% open samenwerking, 18–30% exclusief. Dit is identiek aan hoe het werkt in de UK, VS en Duitsland. Geen vast advertentiebudget — enkel betalen bij resultaat." },
+                    { n: "02", t: "Kies uit gescreende TikTok-verkopers", d: "AI matcht op GMV (echte TikTok Shop-verkoopcijfers), engagement en niche. Bewezen model: platformen zoals Cruva (VS) en Collabstr (UK) werken exact zo." },
+                    { n: "03", t: "Wij regelen alles daarna", d: "TikToMatch beheert contract, commissie-tracking en betalingen. Creators ontvangen hun commissie 15 dagen na levering — conform TikTok Shop-standaard wereldwijd." },
                   ].map(({ n, t, d }) => (
                     <div key={n} className="flex gap-4 items-start">
                       <div className="w-9 h-9 rounded-xl bg-[#ff0050]/15 border border-[#ff0050]/30 flex items-center justify-center shrink-0">
@@ -406,9 +406,9 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { n: "01", t: "Gratis profiel aanmaken", d: "Voeg je TikTok-profiel toe met je statistieken (volgers, engagement, GMV). Aanmelden is gratis. Je kan promoten via in-feed video's, LIVE-sessies of je profiel-storefront." },
-                    { n: "02", t: "Zie precies wat je kan verdienen", d: "Merken stellen een commissie% in (bv. 10%). Vóórdat je iets accepteert zie je het exacte bedrag per verkoop. Gemiddeld: 5–30% afhankelijk van de categorie." },
-                    { n: "03", t: "Verkoop & ontvang automatisch commissie", d: "Sales via jouw unieke TikTok Shop-link worden automatisch bijgehouden. TikToMatch int bij het merk en betaalt jou door — 15 dagen na levering van de bestelling." },
+                    { n: "01", t: "Gratis profiel aanmaken", d: "Voeg je TikTok-profiel toe. Aanmelden is altijd gratis — net zoals bij vergelijkbare platformen in de VS (Collabstr) en UK. Je promoot via in-feed video's, LIVE-sessies of storefront." },
+                    { n: "02", t: "Verdien 10–15% commissie per verkoop", d: "Dit is de wereldwijde standaard op TikTok Shop. In de UK en VS werken creators al zo. Vóór acceptatie zie je exact hoeveel je verdient per verkoop in jouw categorie." },
+                    { n: "03", t: "Automatisch uitbetaald — 15 dagen na levering", d: "Wereldwijde TikTok Shop-standaard: uitbetaling 15 dagen na bevestigde levering. TikToMatch int bij het merk en betaalt door. Geen facturatie, geen gedoe." },
                   ].map(({ n, t, d }) => (
                     <div key={n} className="flex gap-4 items-start">
                       <div className="w-9 h-9 rounded-xl bg-[#00d4c8]/10 border border-[#00d4c8]/20 flex items-center justify-center shrink-0">
@@ -448,6 +448,77 @@ export default function LandingPage() {
               Bekijk alle 500+ creators
               <ArrowRight className="h-4 w-4" />
             </Link>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          BEWEZEN MODEL UIT HET BUITENLAND
+      ═══════════════════════════════════════ */}
+      <section className="py-20 px-6 bg-[#0f0f0f]">
+        <div className="max-w-5xl mx-auto">
+          <FadeUp className="text-center mb-12">
+            <p className="text-sm font-bold text-white/30 tracking-[0.2em] uppercase mb-3">Bewezen model</p>
+            <h2 className="text-4xl font-black mb-3">
+              Wat al werkt in de <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">VS, UK & EU</span>
+            </h2>
+            <p className="text-white/40 max-w-xl mx-auto text-sm">
+              TikToMatch kopieert wat al bewezen werkt op buitenlandse platforms — commissiemodel, uitbetalingstermijnen en creator-matching. Niets uitgevonden, alles gevalideerd.
+            </p>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {[
+              { stat: "$112B", label: "TikTok Shop GMV worldwide 2026", sub: "Forecast eMarketer" },
+              { stat: "x2", label: "Groei per jaar", sub: "Van $33B (2024) → $64B (2025)" },
+              { stat: "15M+", label: "Actieve verkopers wereldwijd", sub: "Op TikTok Shop 2026" },
+              { stat: "20%", label: "Van heel social commerce", sub: "Aandeel TikTok Shop 2026" },
+            ].map(({ stat, label, sub }) => (
+              <StaggerItem key={label}>
+                <div className="bg-white/5 border border-white/8 rounded-2xl p-5 text-center">
+                  <p className="text-3xl font-black text-white mb-1">{stat}</p>
+                  <p className="text-xs font-semibold text-white/60 mb-1">{label}</p>
+                  <p className="text-[10px] text-white/25">{sub}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                markt: "🇺🇸 Verenigde Staten",
+                gmv: "$15,1 miljard GMV (2025)",
+                detail: "Platform Cruva helpt merken creators te vinden op commissiebasis. Exact hetzelfde model als TikToMatch — maar wij zijn Belgisch en gespecialiseerd.",
+                accent: "border-blue-500/20",
+              },
+              {
+                markt: "🇬🇧 Verenigd Koninkrijk",
+                gmv: "Lancering 2023 → 9% referral fee",
+                detail: "Collabstr & vergelijkbare platforms verbinden merken en creators via commissie. Portland Leather Goods: $0 naar $1M GMV in 20 dagen via creator-affiliate.",
+                accent: "border-[#ff0050]/20",
+              },
+              {
+                markt: "🇩🇪🇫🇷 Duitsland & Frankrijk",
+                gmv: "100K+ bedrijven actief sinds 2025",
+                detail: "Triple-digit GMV-groei in 6 maanden. Carrefour, L'Oréal en MAC Cosmetics werken met creators op commissiebasis — exact het model dat TikToMatch biedt in België.",
+                accent: "border-[#00d4c8]/20",
+              },
+            ].map(({ markt, gmv, detail, accent }) => (
+              <StaggerItem key={markt}>
+                <div className={`bg-[#111] border ${accent} rounded-2xl p-5`}>
+                  <p className="font-black text-white text-sm mb-1">{markt}</p>
+                  <p className="text-xs text-[#00d4c8] font-semibold mb-3">{gmv}</p>
+                  <p className="text-xs text-white/40 leading-relaxed">{detail}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeUp delay={0.3} className="mt-8 text-center">
+            <p className="text-sm text-white/30">
+              België is de <strong className="text-white/60">volgende markt</strong>. TikToMatch staat klaar op 15 juni — als enige Belgisch gespecialiseerd platform.
+            </p>
           </FadeUp>
         </div>
       </section>
@@ -671,8 +742,9 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <FadeUp className="text-center mb-6">
             <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Prijzen</p>
-            <h2 className="text-5xl font-black mb-4">Transparant & eerlijk</h2>
-            <p className="text-white/40 text-lg mb-12">Maandabonnement voor toegang + commissie % op sales (door jou te bepalen)</p>
+            <h2 className="text-5xl font-black mb-4">Eerlijk & marktconform</h2>
+            <p className="text-white/40 text-lg mb-4">Maandabonnement voor toegang + commissie % op sales</p>
+            <p className="text-xs text-white/25 mb-12">Vergelijk: Grin (VS) kost $2.000/mnd · Aspire $1.000/mnd · Collabstr $299/mnd + 10% transactiefee. TikToMatch: €49–€249/mnd, enkel 20% van creator-commissie.</p>
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
