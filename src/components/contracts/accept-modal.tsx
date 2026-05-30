@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Loader2, FileText, CheckCircle, Shield, AlertTriangle } from "lucide-react"
+import { FileText, CheckCircle, Shield, AlertTriangle } from "lucide-react"
 
 interface Props {
   matchId: string
