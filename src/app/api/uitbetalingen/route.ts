@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { stripe } from '@/lib/stripe'
+import { getStripe } from '@/lib/stripe'
 import { NextResponse } from 'next/server'
 
 // Wordt aangeroepen via cron job elke 2 weken
@@ -26,6 +26,11 @@ export async function POST(request: Request) {
 
   let verwerkt = 0
   const fouten: string[] = []
+
+  let stripe
+  try { stripe = getStripe() } catch {
+    return NextResponse.json({ error: 'Stripe niet geconfigureerd' }, { status: 503 })
+  }
 
   for (const uitbetaling of openUitbetalingen) {
     try {

@@ -1,39 +1,18 @@
 import Stripe from "stripe"
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-05-27.dahlia",
-})
+// Lazy initialisatie — crasht niet als key ontbreekt/placeholder is
+let _stripe: Stripe | null = null
 
-export const PLANS = {
-  starter: {
-    naam: "Starter",
-    prijs: 99,
-    prijs_id: process.env.STRIPE_STARTER_PRICE_ID!,
-    tier: "starter" as const,
-    campagnes: 5,
-    matches_per_maand: 50,
-    features: ["5 actieve campagnes", "50 AI-matches/mnd", "Basis analytics", "E-mail support"],
-  },
-  pro: {
-    naam: "Pro",
-    prijs: 249,
-    prijs_id: process.env.STRIPE_PRO_PRICE_ID!,
-    tier: "pro" as const,
-    campagnes: Infinity,
-    matches_per_maand: Infinity,
-    features: ["Onbeperkte campagnes", "Onbeperkte matches", "Priority matching", "Geavanceerde analytics", "Telefoon support"],
-  },
-  agency: {
-    naam: "Agency",
-    prijs: 499,
-    prijs_id: process.env.STRIPE_AGENCY_PRICE_ID!,
-    tier: "agency" as const,
-    campagnes: Infinity,
-    matches_per_maand: Infinity,
-    features: ["Alles in Pro", "Tot 10 merkaccounts", "White-label dashboard", "Dedicated manager", "SLA garantie"],
-  },
-} as const
+export function getStripe(): Stripe {
+  if (!_stripe) {
+    const key = process.env.STRIPE_SECRET_KEY
+    if (!key || key.startsWith("sk_test_placeholder") || key === "") {
+      throw new Error("STRIPE_SECRET_KEY is not configured")
+    }
+    _stripe = new Stripe(key, { apiVersion: "2026-05-27.dahlia" })
+  }
+  return _stripe
+}
 
-export type PlanKey = keyof typeof PLANS
-
-export const PLATFORM_COMMISSIE = 0.15
+// Herexporteer PLANS & PLATFORM_COMMISSIE vanuit plans.ts voor backwards compat
+export { PLANS, PLATFORM_COMMISSIE, type PlanKey } from "@/lib/plans"
