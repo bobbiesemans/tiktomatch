@@ -26,16 +26,25 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
 
   const { pathname } = request.nextUrl
-  const isAuthPage = pathname.startsWith('/auth')
-  const isDashboard = pathname.startsWith('/dashboard')
+
+  // Pagina's die ingelogde gebruikers WEL mogen bezoeken onder /auth
+  const isOnboarding = pathname.startsWith('/auth/onboarding')
+  const isCallback   = pathname.startsWith('/auth/callback')
+  const isUpdatePw   = pathname.startsWith('/auth/update-password')
+  const isVerify     = pathname.startsWith('/auth/verify-email')
+
+  const isAuthPage   = pathname.startsWith('/auth') && !isOnboarding && !isCallback && !isUpdatePw && !isVerify
+  const isDashboard  = pathname.startsWith('/dashboard')
   const isProtectedApi = pathname.startsWith('/api') &&
     !pathname.startsWith('/api/webhooks/stripe') &&
     !pathname.startsWith('/api/waitlist')
 
-  if (!user && (isDashboard || isProtectedApi)) {
+  // Niet ingelogd → stuur naar login
+  if (!user && (isDashboard || isProtectedApi || isOnboarding)) {
     return NextResponse.redirect(new URL('/auth/login', request.url))
   }
 
+  // Ingelogd op login/register pagina → stuur naar dashboard
   if (user && isAuthPage) {
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }
