@@ -51,46 +51,16 @@ export default function VoorwaardenPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-3">4. Abonnementen & Betaling (Brands)</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Plan</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Prijs/maand</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Matches</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Features</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Free</td>
-                    <td className="px-4 py-3">€0</td>
-                    <td className="px-4 py-3">3 matches/maand</td>
-                    <td className="px-4 py-3 text-gray-500">Basismatching</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Starter</td>
-                    <td className="px-4 py-3">€49</td>
-                    <td className="px-4 py-3">15 matches/maand</td>
-                    <td className="px-4 py-3 text-gray-500">AI-analyse + messaging</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Pro</td>
-                    <td className="px-4 py-3">€99</td>
-                    <td className="px-4 py-3">Onbeperkt</td>
-                    <td className="px-4 py-3 text-gray-500">Alles + analytics + API</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Agency</td>
-                    <td className="px-4 py-3">€249</td>
-                    <td className="px-4 py-3">Onbeperkt</td>
-                    <td className="px-4 py-3 text-gray-500">Multi-account + white-label</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-gray-600 text-sm mt-3">Abonnementen worden maandelijks automatisch verlengd. Opzeggen kan op elk moment, met ingang van de volgende facturatieperiode. Alle prijzen zijn excl. BTW.</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">4. Toegang & Tarieven (Brands)</h2>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              TikToMatch werkt met <strong>tarieven op maat</strong> voor merken en bedrijven. Er zijn geen vaste publieke abonnementsprijzen. Na registratie en het invullen van een brandprofiel neemt TikToMatch <strong>binnen 24 uur</strong> persoonlijk contact op om de toegang en het toepasselijke tarief te bespreken.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mt-2">
+              TikToMatch behoudt het recht om registraties te weigeren of toegang te beperken. Toegang wordt pas verleend na expliciete goedkeuring door TikToMatch. De tarieven zijn gebaseerd op het commissiemodel (percentage van gerealiseerde verkopen via het platform) en/of een vaste platformvergoeding, afhankelijk van het profiel en de sector van de klant.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mt-2">
+              Alle tarieven worden vastgelegd in een individuele overeenkomst. Wijzigingen worden minimaal 30 dagen vooraf gecommuniceerd. Alle tarieven zijn excl. BTW.
+            </p>
           </section>
 
           <section>

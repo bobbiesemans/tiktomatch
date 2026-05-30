@@ -736,35 +736,85 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          PRIJZEN
+          VOOR MERKEN — AANVRAAG
       ═══════════════════════════════════════ */}
       <section id="prijzen" className="py-32 px-6 bg-[#080808]">
         <div className="max-w-5xl mx-auto">
-          <FadeUp className="text-center mb-6">
-            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Prijzen</p>
-            <h2 className="text-5xl font-black mb-4">Eerlijk & marktconform</h2>
-            <p className="text-white/40 text-lg mb-4">Maandabonnement voor toegang + commissie % op sales</p>
-            <p className="text-xs text-white/25 mb-12">Vergelijk: Grin (VS) kost $2.000/mnd · Aspire $1.000/mnd · Collabstr $299/mnd + 10% transactiefee. TikToMatch: €49–€249/mnd, enkel 20% van creator-commissie.</p>
+          <FadeUp className="text-center mb-16">
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Voor merken</p>
+            <h2 className="text-5xl font-black mb-4">
+              Tarieven <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">op maat</span>
+            </h2>
+            <p className="text-white/40 text-lg max-w-xl mx-auto">
+              Maak gratis je profiel aan. Wij bekijken je aanvraag en nemen
+              <strong className="text-white"> binnen 24 uur</strong> contact met je op om alles te bespreken.
+            </p>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <PrijsKaart naam="Starter" prijs={49} beschrijving="Voor kleine merken & zelfstandigen"
-              features={["Toegang tot creator database", "5 actieve campagnes", "50 AI-matches/mnd", "Basis commissie-rapportage", "E-mail support"]}
-              plan="starter" highlighted={false} />
-            <PrijsKaart naam="Pro" prijs={99} beschrijving="Voor groeiende merken"
-              features={["Onbeperkte campagnes", "Onbeperkte matches", "Geavanceerde verkoopanalytics", "Prioritaire AI-matching", "Telefoon support"]}
-              plan="pro" highlighted={true} />
-            <PrijsKaart naam="Agency" prijs={249} beschrijving="Voor agencies & grote merken"
-              features={["Alles in Pro", "Tot 10 merkaccounts", "White-label dashboard", "Dedicated accountmanager", "SLA garantie"]}
-              plan="agency" highlighted={false} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Stappen */}
+            <FadeUp delay={0.1}>
+              <div className="space-y-4">
+                {[
+                  { n: "1", t: "Registreer gratis & vul je profiel in", d: "Vertel ons over je merk, producten en het commissiepercentage dat je wil bieden. Duurt 5 minuten." },
+                  { n: "2", t: "Wij bekijken je aanvraag", d: "Ons team controleert je profiel op geschiktheid — sector, producten, doelgroep. Geen automatische goedkeuring." },
+                  { n: "3", t: "Wij nemen contact op binnen 24u", d: "Een TikToMatch-medewerker neemt persoonlijk contact op. We bespreken jouw situatie en wat we voor jou kunnen doen." },
+                  { n: "4", t: "Je krijgt toegang & we starten", d: "Na akkoord krijg je toegang tot de creator database en starten we de eerste matches." },
+                ].map(({ n, t, d }) => (
+                  <div key={n} className="flex gap-4 items-start p-4 bg-white/4 hover:bg-white/6 border border-white/8 rounded-2xl transition-colors">
+                    <div className="w-8 h-8 bg-[#ff0050] rounded-xl flex items-center justify-center text-white font-black text-sm shrink-0">
+                      {n}
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-sm mb-1">{t}</p>
+                      <p className="text-xs text-white/40 leading-relaxed">{d}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeUp>
+
+            {/* CTA kaart */}
+            <ScaleIn delay={0.2}>
+              <div className="bg-gradient-to-b from-[#1a1a1a] to-[#111] border border-white/12 rounded-3xl p-8">
+                <div className="mb-6">
+                  <p className="text-xs font-bold text-[#ff0050] uppercase tracking-widest mb-2">Tariefmodel</p>
+                  <p className="font-black text-white text-2xl mb-1">Commissie-gebaseerd</p>
+                  <p className="text-white/40 text-sm">Geen vast abonnement. Tarieven op maat van jouw volume en sector.</p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    { icon: "✓", t: "Toegang tot gescreende Belgian creators" },
+                    { icon: "✓", t: "AI-matching op GMV en niche" },
+                    { icon: "✓", t: "Contracten en betalingsbeheer via platform" },
+                    { icon: "✓", t: "Uitbetaling creators na 15 dagen (TikTok-standaard)" },
+                    { icon: "✓", t: "Persoonlijke begeleiding bij opstarten" },
+                    { icon: "✓", t: "Platform-only communicatie — geen directe contacten" },
+                  ].map(({ icon, t }) => (
+                    <div key={t} className="flex items-center gap-3 text-sm">
+                      <span className="text-[#ff0050] font-black shrink-0">{icon}</span>
+                      <span className="text-white/70">{t}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link href="/auth/register"
+                  className="block w-full text-center bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold py-4 rounded-xl transition-all shadow-xl shadow-[#ff0050]/25 hover:shadow-[#ff0050]/40 hover:scale-[1.02] mb-3">
+                  Profiel aanmaken → wij nemen contact op
+                </Link>
+                <p className="text-center text-xs text-white/25">Geen automatische goedkeuring · Persoonlijk contact binnen 24u</p>
+              </div>
+            </ScaleIn>
           </div>
 
-          <FadeIn>
-            <div className="flex items-start gap-3 p-5 bg-[#00d4c8]/8 border border-[#00d4c8]/20 rounded-2xl max-w-xl mx-auto">
+          {/* Creator info */}
+          <FadeIn delay={0.3}>
+            <div className="mt-10 flex items-start gap-3 p-5 bg-[#00d4c8]/8 border border-[#00d4c8]/20 rounded-2xl max-w-xl mx-auto">
               <CheckCircle className="h-5 w-5 text-[#00d4c8] shrink-0 mt-0.5" />
               <p className="text-sm text-white/60">
                 <strong className="text-white">Creator?</strong> Aanmelden is altijd gratis.
-                TikToMatch houdt 20% in van jouw commissie. Geen maandelijkse kosten.
+                Je profiel wordt automatisch goedgekeurd na verificatie. TikToMatch houdt 20% in van je verdiende commissie — geen maandelijkse kosten.
               </p>
             </div>
           </FadeIn>

@@ -1,7 +1,7 @@
 "use client"
 export const dynamic = "force-dynamic"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -11,10 +11,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { PLANS } from "@/lib/plans"
 import { Check, Loader2 } from "lucide-react"
 import { toast } from "sonner"
-import { cn } from "@/lib/utils"
 
 const schema = z.object({
   bedrijfsnaam: z.string().min(2),
@@ -25,9 +23,6 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function BrandInstellingenPage() {
-  const [tier, setTier] = useState("free")
-  const [upgradeLoading, setUpgradeLoading] = useState<string | null>(null)
-
   const { register, handleSubmit, reset, formState: { isSubmitting, errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
@@ -37,12 +32,8 @@ export default function BrandInstellingenPage() {
       const supabase = createClient()
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
-      const [{ data: brand }, { data: profile }] = await Promise.all([
-        supabase.from("brands").select("*").eq("id", user.id).single(),
-        supabase.from("profiles").select("subscription_tier").eq("id", user.id).single(),
-      ])
+      const { data: brand } = await supabase.from("brands").select("*").eq("id", user.id).single()
       if (brand) reset({ bedrijfsnaam: brand.bedrijfsnaam, website: brand.website ?? "", beschrijving: brand.beschrijving ?? "", btw_nummer: brand.btw_nummer ?? "" })
-      if (profile) setTier(profile.subscription_tier)
     }
     laad()
   }, [reset])
@@ -54,18 +45,6 @@ export default function BrandInstellingenPage() {
     const { error } = await supabase.from("brands").upsert({ id: user.id, ...data })
     if (error) toast.error("Opslaan mislukt")
     else toast.success("Profiel opgeslagen")
-  }
-
-  async function handleUpgrade(plan: string) {
-    setUpgradeLoading(plan)
-    const res = await fetch("/api/stripe/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ plan }),
-    })
-    const d = await res.json()
-    if (d.url) window.location.href = d.url
-    else { toast.error("Checkout mislukt"); setUpgradeLoading(null) }
   }
 
   return (
@@ -104,31 +83,43 @@ export default function BrandInstellingenPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Abonnement</CardTitle>
-          <p className="text-sm text-gray-500">Huidig plan: <span className="font-semibold capitalize text-[#1a0533]">{tier}</span></p>
+          <CardTitle>Toegang & tarieven</CardTitle>
+          <p className="text-sm text-gray-500">Tarieven worden op maat bepaald na persoonlijk contact</p>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-3 gap-4">
-            {(Object.entries(PLANS) as [string, typeof PLANS[keyof typeof PLANS]][]).map(([key, plan]) => (
-              <div key={key} className={cn("rounded-xl border-2 p-4", tier === plan.tier ? "border-[#ff0050] bg-red-50" : "border-gray-200")}>
-                <p className="font-bold text-gray-900">{plan.naam}</p>
-                <p className="text-2xl font-extrabold text-gray-900 my-2">€{plan.prijs}<span className="text-sm font-normal text-gray-500">/mnd</span></p>
-                <ul className="space-y-1 mb-4">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-1.5 text-xs text-gray-600">
-                      <Check className="h-3 w-3 text-green-500" />{f}
-                    </li>
-                  ))}
-                </ul>
-                {tier === plan.tier ? (
-                  <Button variant="secondary" size="sm" className="w-full" disabled>Huidig plan</Button>
-                ) : (
-                  <Button size="sm" className="w-full bg-[#ff0050] hover:bg-[#ff337a]" onClick={() => handleUpgrade(key)} disabled={upgradeLoading === key}>
-                    {upgradeLoading === key ? <Loader2 className="h-3 w-3 animate-spin" /> : "Upgraden"}
-                  </Button>
-                )}
+        <CardContent className="space-y-4">
+          <div className="flex items-start gap-4 p-4 bg-[#1a0533]/5 border border-[#1a0533]/15 rounded-xl">
+            <div className="w-10 h-10 bg-[#1a0533] rounded-xl flex items-center justify-center shrink-0">
+              <Check className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <p className="font-semibold text-gray-900 text-sm">Jouw aanvraag is ontvangen</p>
+              <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
+                Ons team bekijkt je profiel en neemt <strong>binnen 24 uur</strong> contact met je op via e-mail om je toegang en tarieven te bespreken.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { icon: "🎯", t: "AI-matching op maat", d: "Op basis van jouw producten, commissie% en doelgroep" },
+              { icon: "💳", t: "Commissie-gebaseerd", d: "Enkel betalen als er verkocht wordt via creators" },
+              { icon: "📞", t: "Persoonlijk contact", d: "Een medewerker begeleidt je bij het opstarten" },
+            ].map(({ icon, t, d }) => (
+              <div key={t} className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <span className="text-2xl block mb-2">{icon}</span>
+                <p className="font-semibold text-gray-900 text-sm mb-1">{t}</p>
+                <p className="text-xs text-gray-500">{d}</p>
               </div>
             ))}
+          </div>
+
+          <div className="p-4 bg-amber-50 border border-amber-100 rounded-xl">
+            <p className="text-sm text-amber-800">
+              Vragen over toegang of tarieven?
+              Mail naar <a href="mailto:info@tiktomatch.be" className="font-semibold underline">info@tiktomatch.be</a> of
+              bel <a href="tel:+32" className="font-semibold underline">+32 (contact volgt binnenkort)</a>.
+              We nemen sowieso zelf contact op binnen 24u na registratie.
+            </p>
           </div>
         </CardContent>
       </Card>
