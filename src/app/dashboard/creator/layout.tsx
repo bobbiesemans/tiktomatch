@@ -29,11 +29,11 @@ export default async function CreatorLayout({ children }: { children: React.Reac
   return (
     <div className="flex min-h-screen bg-[#f8f9fc]">
       <DashboardSidebar type="creator" />
-      <div className="flex-1 ml-60 flex flex-col min-h-screen">
-        <header className="h-16 bg-white/80 backdrop-blur-md border-b border-gray-200/60 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="h-6 w-px bg-gray-200" />
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Creator Dashboard</span>
+      <div className="flex-1 lg:ml-60 flex flex-col min-h-screen">
+        <header className="h-16 bg-white/80 backdrop-blur-md border-b border-gray-200/60 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-30 shadow-sm">
+          <div className="flex items-center gap-3 ml-12 lg:ml-0">
+            <div className="hidden lg:block h-6 w-px bg-gray-200" />
+            <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest hidden sm:block">Creator Dashboard</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export default async function CreatorLayout({ children }: { children: React.Reac
           </div>
         </header>
 
-        <main className="flex-1 p-8 max-w-[1400px] w-full mx-auto">{children}</main>
+        <main className="flex-1 p-4 lg:p-8 pb-24 lg:pb-8 max-w-[1400px] w-full mx-auto">{children}</main>
       </div>
     </div>
   )

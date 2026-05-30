@@ -190,7 +190,7 @@ export default function AanbiedingenPage() {
 
                   {/* Sterke punten / risicos */}
                   {(match.sterke_punten?.length > 0 || match.risicos?.length > 0) && (
-                    <div className="mx-5 mb-4 grid grid-cols-2 gap-3">
+                    <div className="mx-5 mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {match.sterke_punten?.length > 0 && (
                         <div>
                           <p className="text-xs font-semibold text-green-700 mb-1">Sterke punten</p>
@@ -227,33 +227,35 @@ export default function AanbiedingenPage() {
                     </div>
 
                     {tab === "pending" && (
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <Button
                           size="sm"
                           variant="outline"
-                          className="h-8 text-xs text-gray-500"
-                          onClick={() => toast.info("Berichtfunctie komt binnenkort")}
+                          className="h-9 text-xs text-gray-500 flex-1 sm:flex-none"
+                          asChild
                         >
-                          <MessageSquare className="h-3 w-3 mr-1" />
-                          Vraag stellen
+                          <a href={`/dashboard/creator/berichten?match=${match.id}`}>
+                            <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
+                            Vragen
+                          </a>
                         </Button>
                         <Button
                           size="sm"
                           variant="outline"
-                          className="h-8 text-xs border-red-200 text-red-600 hover:bg-red-50"
+                          className="h-9 text-xs border-red-200 text-red-600 hover:bg-red-50 flex-1 sm:flex-none"
                           disabled={updating === match.id}
                           onClick={() => updateStatus(match.id, "rejected")}
                         >
-                          <XCircle className="h-3 w-3 mr-1" />
+                          <XCircle className="h-3.5 w-3.5 mr-1.5" />
                           Afwijzen
                         </Button>
                         <Button
                           size="sm"
-                          className="h-8 text-xs bg-green-600 hover:bg-green-700"
+                          className="h-9 text-xs bg-[#ff0050] hover:bg-[#ff337a] flex-1 sm:flex-none shadow-lg shadow-red-200"
                           disabled={updating === match.id}
                           onClick={() => updateStatus(match.id, "accepted")}
                         >
-                          <CheckCircle className="h-3 w-3 mr-1" />
+                          <CheckCircle className="h-3.5 w-3.5 mr-1.5" />
                           Accepteren
                         </Button>
                       </div>
