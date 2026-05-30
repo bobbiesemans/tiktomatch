@@ -6,7 +6,7 @@ import PrijsKaart from "@/components/PrijsKaart"
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
 import {
-  ArrowRight, CheckCircle, Zap, Star, TrendingUp, Building2, Video,
+  ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
   ChevronRight, Sparkles, CreditCard, Lock
 } from "lucide-react"
