@@ -2,7 +2,7 @@
 export const PLANS = {
   starter: {
     naam: "Starter",
-    prijs: 99,
+    prijs: 49,
     prijs_id: process.env.STRIPE_STARTER_PRICE_ID ?? "",
     tier: "starter" as const,
     campagnes: 5,
@@ -11,7 +11,7 @@ export const PLANS = {
   },
   pro: {
     naam: "Pro",
-    prijs: 249,
+    prijs: 99,
     prijs_id: process.env.STRIPE_PRO_PRICE_ID ?? "",
     tier: "pro" as const,
     campagnes: Infinity,
@@ -20,7 +20,7 @@ export const PLANS = {
   },
   agency: {
     naam: "Agency",
-    prijs: 499,
+    prijs: 249,
     prijs_id: process.env.STRIPE_AGENCY_PRICE_ID ?? "",
     tier: "agency" as const,
     campagnes: Infinity,

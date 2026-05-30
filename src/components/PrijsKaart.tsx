@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { PlanKey } from '@/lib/stripe'
+import type { PlanKey } from '@/lib/plans'
 
 interface Props {
   naam: string
@@ -28,6 +28,9 @@ export default function PrijsKaart({ naam, prijs, beschrijving, features, plan, 
       window.location.href = data.url
     } else if (res.status === 401) {
       window.location.href = '/auth/register'
+    } else {
+      // Stripe not yet configured — stuur naar register
+      window.location.href = '/auth/register'
     }
     setLoading(false)
   }
@@ -35,12 +38,12 @@ export default function PrijsKaart({ naam, prijs, beschrijving, features, plan, 
   return (
     <div className={`rounded-2xl p-6 border-2 relative ${
       highlighted
-        ? 'border-purple-600 shadow-xl shadow-purple-100'
+        ? 'border-[#ff0050] shadow-xl shadow-red-100'
         : 'border-gray-200'
     }`}>
       {highlighted && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-          MEEST POPULAIR
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#ff0050] text-white text-xs font-bold px-3 py-1 rounded-full">
+          MEEST GEKOZEN
         </div>
       )}
 
@@ -52,7 +55,7 @@ export default function PrijsKaart({ naam, prijs, beschrijving, features, plan, 
       <div className="mb-6">
         <span className="text-4xl font-extrabold text-gray-900">€{prijs}</span>
         <span className="text-gray-500">/maand</span>
-        <p className="text-xs text-green-600 mt-1">14 dagen gratis uitproberen</p>
+        <p className="text-xs text-green-600 mt-1">+ commissie % op sales (door jou te bepalen)</p>
       </div>
 
       <ul className="space-y-2 mb-8">
@@ -69,11 +72,11 @@ export default function PrijsKaart({ naam, prijs, beschrijving, features, plan, 
         disabled={loading}
         className={`w-full font-semibold py-3 rounded-xl transition disabled:opacity-50 ${
           highlighted
-            ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-200'
+            ? 'bg-[#ff0050] hover:bg-[#ff337a] text-white shadow-lg shadow-red-200'
             : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
         }`}
       >
-        {loading ? 'Doorsturen...' : 'Probeer 14 dagen gratis'}
+        {loading ? 'Doorsturen...' : 'Starten'}
       </button>
     </div>
   )
