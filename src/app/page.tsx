@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
+import { LaunchBanner } from "@/components/home/launch-banner"
 import WaitlistForm from "@/components/WaitlistForm"
 import PrijsKaart from "@/components/PrijsKaart"
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
@@ -18,6 +19,7 @@ export const metadata = {
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      <LaunchBanner />
       <Navbar />
 
       {/* ═══════════════════════════════════════
@@ -35,13 +37,19 @@ export default function LandingPage() {
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 py-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-24 lg:py-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT: text */}
           <div>
             <HeroText>
-              <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-sm font-semibold px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 bg-[#ff0050] rounded-full animate-pulse" />
-                Lancering 15 juni — TikTok Shopping Belgium
+              <div className="flex flex-wrap gap-2 mb-8">
+                <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 border border-[#ff0050]/30 text-[#ff0050] text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 bg-[#ff0050] rounded-full animate-pulse" />
+                  Pre-launch
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-white/70 text-xs font-semibold px-3 py-1.5 rounded-full">
+                  <Zap className="h-3 w-3 text-[#00d4c8]" />
+                  TikTok Shopping Belgium — 15 juni 2025
+                </div>
               </div>
             </HeroText>
 
@@ -56,18 +64,26 @@ export default function LandingPage() {
             </HeroText>
 
             <HeroText>
-              <p className="text-lg text-white/50 max-w-lg mb-8 leading-relaxed">
+              <p className="text-lg text-white/50 max-w-lg mb-6 leading-relaxed">
                 Commissiemodel. Geen vast budget. Enkel betalen als er verkocht wordt.
                 TikToMatch koppelt jou aan bewezen Belgische TikTok-creators
                 en regelt de volledige betalingsstroom.
               </p>
+              {/* Pre-launch notice */}
+              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-8">
+                <span className="text-lg">🚀</span>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  <strong className="text-white">Je kan nu al registreren.</strong> We gaan live op 15 juni samen met de officiële TikTok Shopping lancering in België.
+                  Vroege gebruikers krijgen <span className="text-[#ff0050] font-semibold">3 maanden gratis Pro</span>.
+                </p>
+              </div>
             </HeroText>
 
             <HeroText>
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <Link href="/auth/register"
                   className="group inline-flex items-center justify-center gap-2 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-7 py-4 rounded-xl text-base transition-all shadow-2xl shadow-[#ff0050]/30 hover:shadow-[#ff0050]/50 hover:scale-[1.02]">
-                  Starten als merk
+                  Gratis registreren
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link href="/auth/register"
@@ -211,6 +227,130 @@ export default function LandingPage() {
               ))}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          PRE-LAUNCH TIJDLIJN
+      ═══════════════════════════════════════ */}
+      <section className="py-24 px-6 bg-[#0f0f0f]">
+        <div className="max-w-5xl mx-auto">
+          <FadeUp className="text-center mb-16">
+            <p className="text-sm font-bold text-[#ff0050] tracking-[0.2em] uppercase mb-4">Roadmap</p>
+            <h2 className="text-4xl font-black mb-4">
+              Wat kan je <span className="bg-gradient-to-r from-[#ff0050] to-[#ff6b9d] bg-clip-text text-transparent">nu al doen?</span>
+            </h2>
+            <p className="text-white/40 max-w-xl mx-auto">
+              TikToMatch is in pre-launch. Alles staat klaar om te gebruiken.
+              De officiële TikTok Shopping lancering in België is op 15 juni.
+            </p>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Fase 1 - NU */}
+            <FadeUp delay={0.1}>
+              <div className="relative bg-gradient-to-b from-[#ff0050]/15 to-transparent border border-[#ff0050]/30 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 bg-[#ff0050] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                    ✓
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#ff0050] uppercase tracking-wider">Nu — Beschikbaar</p>
+                    <p className="font-black text-white">Registreren & instellen</p>
+                  </div>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    "Gratis account aanmaken",
+                    "Creator profiel invullen",
+                    "Brand profiel aanmaken",
+                    "Commissiemodel instellen",
+                    "Creator database verkennen",
+                    "3 maanden gratis Pro reserveren",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-white/70">
+                      <CheckCircle className="h-3.5 w-3.5 text-[#ff0050] shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+
+            {/* Fase 2 - 15 juni */}
+            <FadeUp delay={0.2}>
+              <div className="relative bg-[#111] border border-white/10 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white font-black text-xs shrink-0">
+                    15/6
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#00d4c8] uppercase tracking-wider">15 Juni 2025</p>
+                    <p className="font-black text-white">Go-live</p>
+                  </div>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    "TikTok Shopping Belgium officieel live",
+                    "AI-matching volledig actief",
+                    "Eerste campagnes opstarten",
+                    "Betalingsstromen geactiveerd",
+                    "Commissies beginnen lopen",
+                    "Early adopter voordelen activeren",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-white/50">
+                      <div className="w-3.5 h-3.5 border border-white/20 rounded-full shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+
+            {/* Fase 3 - Zomer */}
+            <FadeUp delay={0.3}>
+              <div className="relative bg-[#111] border border-white/10 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white font-black text-xs shrink-0">
+                    Q3
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white/30 uppercase tracking-wider">Zomer 2025</p>
+                    <p className="font-black text-white">Opschalen</p>
+                  </div>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    "Eerste commissie-uitbetalingen",
+                    "Analytics & rapportage uitbreiden",
+                    "Meer creators onboarden",
+                    "Agency-accounts activeren",
+                    "FR-markt uitrollen",
+                    "Automatische campagne-voorstellen",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-white/30">
+                      <div className="w-3.5 h-3.5 border border-white/10 rounded-full shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* CTA onder tijdlijn */}
+          <FadeUp delay={0.4} className="text-center mt-12">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-white/5 border border-white/10 rounded-2xl px-8 py-5">
+              <div className="text-left">
+                <p className="font-bold text-white">Wacht niet tot 15 juni.</p>
+                <p className="text-sm text-white/40">Bouw nu al je profiel op en sta klaar op dag 1.</p>
+              </div>
+              <Link href="/auth/register"
+                className="shrink-0 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-lg shadow-[#ff0050]/25 hover:scale-[1.02]">
+                Nu registreren →
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -567,18 +707,35 @@ export default function LandingPage() {
         </div>
         <div className="relative max-w-xl mx-auto text-center">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 bg-white/8 border border-white/12 text-sm font-bold px-4 py-2 rounded-full mb-8">
-              <TrendingUp className="h-3.5 w-3.5 text-[#ff0050]" />
-              Vroege toegang
+            <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 border border-[#ff0050]/30 text-[#ff0050] text-xs font-black px-4 py-2 rounded-full mb-8 uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 bg-[#ff0050] rounded-full animate-pulse" />
+              Pre-launch — schrijf je nu in
             </div>
             <h2 className="text-5xl font-black mb-4 leading-tight">
-              Klaar om te<br />
-              <span className="bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent">lanceren?</span>
+              Wees er als<br />
+              <span className="bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent">eerste bij.</span>
             </h2>
-            <p className="text-white/40 mb-10 text-lg leading-relaxed">
-              Early adopters krijgen <strong className="text-white">3 maanden gratis Pro</strong> bij lancering op 15 juni.
+            <p className="text-white/50 mb-6 text-lg leading-relaxed">
+              TikTok Shopping Belgium lanceert op <strong className="text-white">15 juni 2025</strong>.
+              Registreer nu gratis en bouw alvast je profiel op.
             </p>
+
+            {/* Benefits */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-10 text-sm">
+              {[
+                { icon: "🎁", text: "3 maanden gratis Pro" },
+                { icon: "⚡", text: "Eerste matches op lanceringsdag" },
+                { icon: "🔒", text: "Prijs voor altijd vastgezet" },
+              ].map(({ icon, text }) => (
+                <div key={text} className="flex items-center gap-2 bg-white/8 border border-white/10 rounded-xl px-4 py-2.5 flex-1">
+                  <span>{icon}</span>
+                  <span className="text-white/70 font-medium">{text}</span>
+                </div>
+              ))}
+            </div>
+
             <WaitlistForm />
+            <p className="text-xs text-white/20 mt-4">Geen kredietkaart vereist. Altijd gratis voor creators.</p>
           </FadeUp>
         </div>
       </section>
