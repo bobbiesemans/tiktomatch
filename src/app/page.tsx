@@ -3,13 +3,13 @@ import { Navbar } from "@/components/navbar"
 import { LaunchBanner } from "@/components/home/launch-banner"
 import WaitlistForm from "@/components/WaitlistForm"
 
-import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
+import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
 import { TikTokProfileCard } from "@/components/home/tiktok-profile-card"
 import {
   ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
-  Sparkles, CreditCard, Lock
+  CreditCard, Lock
 } from "lucide-react"
 
 export const metadata = {
