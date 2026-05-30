@@ -5,7 +5,7 @@ import WaitlistForm from "@/components/WaitlistForm"
 
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
-import { TikTokProfileCard } from "@/components/home/tiktok-profile-card"
+import { PlatformMockup } from "@/components/home/platform-mockup"
 import {
   ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
@@ -98,85 +98,9 @@ export default function LandingPage() {
             </FadeIn>
           </div>
 
-          {/* RIGHT: levensechte TikTok profielen */}
-          <div className="hidden lg:flex items-end justify-center relative h-[580px] gap-3">
-            {/* Ambient glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff0050]/5 to-transparent pointer-events-none" />
-
-            {/* Laura - links, iets lager */}
-            <div className="mb-0 relative z-10" style={{ marginBottom: '40px' }}>
-              <TikTokProfileCard
-                handle="laurabeauty_be"
-                followers="45.2K"
-                following="312"
-                likes="892K"
-                gmv="€2.840"
-                bio="Fashion & beauty | Antwerpen 🛍️"
-                avatarGradient="from-pink-500 to-rose-600"
-                initials="LV"
-                verified={true}
-                delay={0.3}
-                accentColor="#fe2c55"
-                videos={[
-                  { bg: "bg-gradient-to-br from-rose-400 to-pink-600", views: "1.2M", likes: "84K" },
-                  { bg: "bg-gradient-to-br from-fuchsia-400 to-pink-500", views: "847K", likes: "62K" },
-                  { bg: "bg-gradient-to-br from-pink-400 to-rose-500", views: "2.1M", likes: "156K" },
-                  { bg: "bg-gradient-to-br from-rose-300 to-fuchsia-500", views: "445K", likes: "31K" },
-                  { bg: "bg-gradient-to-br from-pink-500 to-rose-400", views: "673K", likes: "48K" },
-                  { bg: "bg-gradient-to-br from-fuchsia-300 to-pink-400", views: "1.8M", likes: "127K" },
-                ]}
-              />
-            </div>
-
-            {/* Alex - midden, hoger */}
-            <div className="relative z-20">
-              <TikTokProfileCard
-                handle="techbob_brussels"
-                followers="92.4K"
-                following="891"
-                likes="2.1M"
-                gmv="€5.640"
-                bio="Tech & gaming | 🇧🇪 NL/FR"
-                avatarGradient="from-blue-500 to-violet-600"
-                initials="AM"
-                verified={false}
-                delay={0}
-                accentColor="#5468ff"
-                videos={[
-                  { bg: "bg-gradient-to-br from-blue-500 to-violet-600", views: "3.4M", likes: "241K" },
-                  { bg: "bg-gradient-to-br from-indigo-400 to-blue-500", views: "1.7M", likes: "118K" },
-                  { bg: "bg-gradient-to-br from-violet-500 to-purple-600", views: "892K", likes: "67K" },
-                  { bg: "bg-gradient-to-br from-blue-400 to-indigo-500", views: "2.3M", likes: "171K" },
-                  { bg: "bg-gradient-to-br from-violet-400 to-blue-500", views: "445K", likes: "32K" },
-                  { bg: "bg-gradient-to-br from-indigo-500 to-violet-400", views: "1.1M", likes: "84K" },
-                ]}
-              />
-            </div>
-
-            {/* Sarah - rechts, iets lager */}
-            <div className="mb-0 relative z-10" style={{ marginBottom: '40px' }}>
-              <TikTokProfileCard
-                handle="fitgirl_leuven"
-                followers="67.8K"
-                following="445"
-                likes="1.4M"
-                gmv="€4.120"
-                bio="Fitness & health | Leuven 💪"
-                avatarGradient="from-emerald-400 to-teal-600"
-                initials="SK"
-                verified={true}
-                delay={0.5}
-                accentColor="#00d4c8"
-                videos={[
-                  { bg: "bg-gradient-to-br from-emerald-400 to-teal-600", views: "2.1M", likes: "148K" },
-                  { bg: "bg-gradient-to-br from-teal-300 to-emerald-500", views: "934K", likes: "71K" },
-                  { bg: "bg-gradient-to-br from-green-400 to-teal-500", views: "1.5M", likes: "109K" },
-                  { bg: "bg-gradient-to-br from-emerald-300 to-green-500", views: "567K", likes: "43K" },
-                  { bg: "bg-gradient-to-br from-teal-400 to-emerald-600", views: "3.2M", likes: "224K" },
-                  { bg: "bg-gradient-to-br from-green-300 to-emerald-400", views: "781K", likes: "57K" },
-                ]}
-              />
-            </div>
+          {/* RIGHT: platform dashboard mockup */}
+          <div className="hidden lg:flex items-center justify-center relative">
+            <PlatformMockup />
           </div>
         </div>
 
