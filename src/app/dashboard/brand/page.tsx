@@ -25,13 +25,14 @@ export default async function BrandDashboardPage() {
   const { data: brand } = await supabase.from("brands").select("*").eq("id", user.id).single()
   if (!brand) redirect("/auth/onboarding/brand")
 
-  const [{ data: campagnes }, { data: allMatches }] = await Promise.all([
+  const [{ data: campagnes }, { data: allMatches }, { data: profile }] = await Promise.all([
     supabase.from("campagnes").select("omzet, budget, status").eq("brand_id", user.id),
     supabase
       .from("matches")
       .select("*, creators(*)")
       .eq("brand_id", user.id)
       .order("ai_score", { ascending: false }),
+    supabase.from("profiles").select("subscription_tier").eq("id", user.id).single(),
   ])
 
   const camp = campagnes ?? []
@@ -104,7 +105,7 @@ export default async function BrandDashboardPage() {
             Alles bekijken →
           </Link>
         </div>
-        <PipelineBoard matches={matches} />
+        <PipelineBoard matches={matches} subscriptionTier={profile?.subscription_tier ?? "free"} />
       </div>
     </div>
   )

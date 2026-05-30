@@ -13,11 +13,10 @@ export default async function BrandMatchesPage() {
   const { data: brand } = await supabase.from("brands").select("id").eq("id", user.id).single()
   if (!brand) redirect("/auth/onboarding/brand")
 
-  const { data: matchesData } = await supabase
-    .from("matches")
-    .select("*, creators(*)")
-    .eq("brand_id", user.id)
-    .order("ai_score", { ascending: false })
+  const [{ data: matchesData }, { data: profile }] = await Promise.all([
+    supabase.from("matches").select("*, creators(*)").eq("brand_id", user.id).order("ai_score", { ascending: false }),
+    supabase.from("profiles").select("subscription_tier").eq("id", user.id).single(),
+  ])
 
   const matches = (matchesData ?? []) as PipelineMatch[]
 
@@ -30,7 +29,7 @@ export default async function BrandMatchesPage() {
         </p>
       </div>
 
-      <PipelineBoard matches={matches} />
+      <PipelineBoard matches={matches} subscriptionTier={profile?.subscription_tier ?? "free"} />
     </div>
   )
 }

@@ -4,8 +4,13 @@ import { createClient } from "@/lib/supabase/server"
 import { createClient as createAdminClient } from "@supabase/supabase-js"
 import { revalidatePath } from "next/cache"
 
-function generateInvoiceNumber(seq: number): string {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function nextInvoiceNumber(admin: any): Promise<string> {
   const year = new Date().getFullYear()
+  const { count } = await admin
+    .from("invoices")
+    .select("*", { count: "exact", head: true })
+  const seq = (count ?? 0) + 1001
   return `TM-${year}-${String(seq).padStart(4, "0")}`
 }
 
@@ -19,7 +24,6 @@ export async function generateInvoice(campagneId: string) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   )
 
-  // Haal campagne op
   const { data: campagne } = await supabase
     .from("campagnes")
     .select("*, brands(bedrijfsnaam, btw_nummer)")
@@ -30,12 +34,9 @@ export async function generateInvoice(campagneId: string) {
   if (!campagne) return { error: "Campagne niet gevonden" }
   if (campagne.invoice_id) return { error: "Factuur bestaat al" }
 
-  // Genereer factuurnummer via sequence
-  const { data: seqData } = await admin.rpc("nextval", { seq: "invoice_number_seq" }).single() as { data: number | null }
-  const invoiceNum = generateInvoiceNumber(seqData ?? Math.floor(Math.random() * 9000) + 1000)
-
+  const invoiceNum = await nextInvoiceNumber(admin)
   const subtotaal = campagne.budget ?? 0
-  const btwBedrag = subtotaal * 0.21
+  const btwBedrag = Math.round(subtotaal * 0.21 * 100) / 100
   const totaal = subtotaal + btwBedrag
 
   const { data: invoice, error } = await admin.from("invoices").insert({
@@ -53,7 +54,6 @@ export async function generateInvoice(campagneId: string) {
 
   if (error) return { error: error.message }
 
-  // Koppel factuur aan campagne
   await admin.from("campagnes").update({ invoice_id: invoice.id }).eq("id", campagneId)
 
   revalidatePath("/dashboard/brand/facturen")
@@ -72,7 +72,6 @@ export async function markInvoicePaid(invoiceId: string) {
     .eq("brand_id", user.id)
 
   if (error) return { error: error.message }
-
   revalidatePath("/dashboard/brand/facturen")
   return { success: true }
 }
