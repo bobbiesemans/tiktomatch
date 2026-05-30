@@ -5,6 +5,7 @@ import WaitlistForm from "@/components/WaitlistForm"
 
 import { FadeUp, FadeIn, ScaleIn, StaggerContainer, StaggerItem, HeroText, FloatingCard } from "@/components/home/animated-section"
 import { CreatorShowcase } from "@/components/home/creator-showcase"
+import { TikTokProfileCard } from "@/components/home/tiktok-profile-card"
 import {
   ArrowRight, CheckCircle, Zap, Star, Building2, Video,
   Shield, Euro, Package, ShoppingBag, Users, Globe, BarChart2, Target,
@@ -37,162 +38,133 @@ export default function LandingPage() {
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-24 lg:py-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-24 lg:py-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT: text */}
           <div>
             <HeroText>
-              <div className="flex flex-wrap gap-2 mb-8">
-                <div className="inline-flex items-center gap-2 bg-[#ff0050]/15 border border-[#ff0050]/30 text-[#ff0050] text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 bg-[#ff0050] rounded-full animate-pulse" />
-                  Pre-launch
-                </div>
-                <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-white/70 text-xs font-semibold px-3 py-1.5 rounded-full">
-                  <Zap className="h-3 w-3 text-[#00d4c8]" />
-                  TikTok Shopping Belgium — 15 juni 2026
-                </div>
+              <div className="inline-flex items-center gap-2 bg-[#ff0050] text-white text-xs font-black px-4 py-2 rounded-full mb-8 shadow-lg shadow-[#ff0050]/40 uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                #1 TikTok Shop Platform België
               </div>
             </HeroText>
 
             <HeroText>
-              <h1 className="text-6xl md:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-6">
-                <span className="block text-white">Belgische</span>
+              <h1 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight mb-6">
+                <span className="block text-white/60 text-3xl md:text-4xl font-bold mb-2">15 juni 2026.</span>
+                <span className="block text-white">TikTok Shop</span>
                 <span className="block bg-gradient-to-r from-[#ff0050] via-[#ff6b9d] to-[#ff0050] bg-clip-text text-transparent bg-[length:200%] animate-[shimmer_3s_ease-in-out_infinite]">
-                  TikTok-creators
+                  lanceert in België.
                 </span>
-                <span className="block text-white/90">voor jouw merk.</span>
+                <span className="block text-white mt-2">Jij bent er als eerste.</span>
               </h1>
             </HeroText>
 
             <HeroText>
-              <p className="text-lg text-white/50 max-w-lg mb-6 leading-relaxed">
-                Commissiemodel. Geen vast budget. Enkel betalen als er verkocht wordt.
-                TikToMatch koppelt jou aan bewezen Belgische TikTok-creators
-                en regelt de volledige betalingsstroom.
+              <p className="text-lg text-white/55 max-w-lg mb-6 leading-relaxed">
+                <strong className="text-white">4,3 miljoen Belgische TikTok-gebruikers. €24 miljard aan e-commerce.</strong> Een markt die opengaat voor wie er nu bij is.
+                TikToMatch is het eerste en enige Belgische platform dat jouw merk verbindt met bewezen TikTok-creators — op commissiebasis.
               </p>
-              {/* Pre-launch notice */}
-              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-8">
-                <span className="text-lg">🚀</span>
-                <p className="text-sm text-white/60 leading-relaxed">
-                  <strong className="text-white">Je kan nu al registreren.</strong> We gaan live op 15 juni samen met de officiële TikTok Shopping lancering in België.
-                  Vroege gebruikers krijgen <span className="text-[#ff0050] font-semibold">3 maanden gratis Pro</span>.
-                </p>
-              </div>
             </HeroText>
 
             <HeroText>
-              <div className="flex flex-col sm:flex-row gap-3 mb-12">
+              <div className="flex flex-col sm:flex-row gap-3 mb-10">
                 <Link href="/auth/register"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-7 py-4 rounded-xl text-base transition-all shadow-2xl shadow-[#ff0050]/30 hover:shadow-[#ff0050]/50 hover:scale-[1.02]">
-                  Gratis registreren
+                  className="group inline-flex items-center justify-center gap-2 bg-[#ff0050] hover:bg-[#ff337a] text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-2xl shadow-[#ff0050]/30 hover:shadow-[#ff0050]/50 hover:scale-[1.02]">
+                  Claim je plek nu
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link href="/auth/register"
                   className="group inline-flex items-center justify-center gap-2 bg-white/8 hover:bg-white/12 text-white font-bold px-7 py-4 rounded-xl text-base transition-all border border-white/15 hover:border-white/30">
                   <Video className="h-4 w-4 text-[#00d4c8]" />
                   Ik ben een creator
-                  <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-white/60 transition-colors" />
                 </Link>
               </div>
             </HeroText>
 
             {/* Stats */}
             <FadeIn delay={0.4}>
-              <div className="flex flex-wrap gap-8">
+              <div className="flex flex-wrap gap-8 pt-6 border-t border-white/8">
                 {[
-                  { n: "$112B", l: "TikTok Shop GMV wereldwijd in 2026" },
-                  { n: "4,3M", l: "TikTok-gebruikers in België" },
-                  { n: "15M+", l: "Actieve verkopers op TikTok Shop" },
+                  { n: "$112B", l: "TikTok Shop GMV wereldwijd" },
+                  { n: "4,3M", l: "Belgische gebruikers" },
+                  { n: "15 juni", l: "Lancering België" },
                 ].map(({ n, l }) => (
                   <div key={l}>
-                    <div className="text-3xl font-black text-white">{n}</div>
-                    <div className="text-sm text-white/40 mt-0.5">{l}</div>
+                    <div className="text-2xl font-black text-white">{n}</div>
+                    <div className="text-xs text-white/35 mt-0.5">{l}</div>
                   </div>
                 ))}
               </div>
             </FadeIn>
           </div>
 
-          {/* RIGHT: floating creator cards */}
-          <div className="hidden lg:flex items-center justify-center relative h-[520px]">
-            {/* Glow behind cards */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ff0050]/10 to-[#00d4c8]/10 rounded-3xl blur-2xl" />
+          {/* RIGHT: levensechte TikTok profielen */}
+          <div className="hidden lg:flex items-center justify-center relative h-[540px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff0050]/8 to-[#00d4c8]/8 rounded-3xl blur-3xl" />
 
-            <FloatingCard delay={0} className="absolute top-8 left-8 w-52">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-black text-sm">LA</div>
-                  <div>
-                    <p className="text-xs font-bold text-white">Laura V.</p>
-                    <p className="text-[10px] text-white/50">@laurabeauty_be</p>
-                  </div>
-                  <div className="ml-auto bg-white/15 rounded-full px-2 py-1">
-                    <span className="text-xs font-black text-white">87</span>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <div className="flex-1 bg-white/10 rounded-lg p-2 text-center">
-                    <p className="text-xs font-bold text-white">45.2K</p>
-                    <p className="text-[10px] text-white/40">volgers</p>
-                  </div>
-                  <div className="flex-1 bg-white/10 rounded-lg p-2 text-center">
-                    <p className="text-xs font-bold text-[#00d4c8]">€2.840</p>
-                    <p className="text-[10px] text-white/40">GMV/mnd</p>
-                  </div>
-                </div>
-              </div>
-            </FloatingCard>
-
-            <FloatingCard delay={0.5} className="absolute top-1/2 right-0 -translate-y-1/2 w-56">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-black text-sm">SK</div>
-                  <div>
-                    <p className="text-xs font-bold text-white">Sarah K.</p>
-                    <p className="text-[10px] text-white/50">@fitgirl_leuven</p>
-                  </div>
-                  <div className="ml-auto bg-[#ff0050]/20 rounded-full px-2 py-1">
-                    <span className="text-xs font-black text-[#ff0050]">83</span>
-                  </div>
-                </div>
-                <div className="bg-green-500/15 rounded-xl p-2 flex items-center justify-between">
-                  <span className="text-xs text-green-400">Commissie @ 10%</span>
-                  <span className="text-xs font-bold text-green-400">€412/mnd</span>
-                </div>
-              </div>
-            </FloatingCard>
-
-            <FloatingCard delay={1} className="absolute bottom-12 left-12 w-48">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="h-4 w-4 text-[#ff0050]" />
-                  <span className="text-xs font-bold text-white">AI Match</span>
-                </div>
-                <p className="text-[10px] text-white/60 leading-relaxed">Perfect niche-match voor jouw producten. Bewezen verkoopkracht via TikTok Shop.</p>
-              </div>
-            </FloatingCard>
-
-            {/* Center card */}
-            <div className="relative z-10 w-60 bg-white/8 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="h-24 bg-gradient-to-br from-blue-600 to-violet-600 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 border-4 border-white/20 flex items-center justify-center text-white font-black text-xl shadow-xl">AM</div>
-                </div>
-              </div>
-              <div className="p-4">
-                <p className="text-sm font-bold text-white">Alex M.</p>
-                <p className="text-xs text-white/50 mb-3">@techbob_brussels</p>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white/10 rounded-lg p-2 text-center">
-                    <p className="text-xs font-bold text-white">92.4K</p>
-                    <p className="text-[10px] text-white/40">volgers</p>
-                  </div>
-                  <div className="bg-white/10 rounded-lg p-2 text-center">
-                    <p className="text-xs font-bold text-[#00d4c8]">€5.640</p>
-                    <p className="text-[10px] text-white/40">GMV/mnd</p>
-                  </div>
-                </div>
-              </div>
+            {/* Laura - links boven */}
+            <div className="absolute top-4 left-0 z-20">
+              <TikTokProfileCard
+                name="@laurabeauty_be"
+                handle="laurabeauty_be"
+                followers="45.2K"
+                likes="892K"
+                gmv="€2.840"
+                niche="Fashion · Beauty"
+                gradient="from-pink-500 to-rose-600"
+                initials="LV"
+                verified={true}
+                delay={0.2}
+                videoColors={["bg-rose-400", "bg-pink-300", "bg-fuchsia-400", "bg-rose-300", "bg-pink-500", "bg-fuchsia-300"]}
+              />
             </div>
+
+            {/* Alex - midden center */}
+            <div className="relative z-30">
+              <TikTokProfileCard
+                name="@techbob_brussels"
+                handle="techbob_brussels"
+                followers="92.4K"
+                likes="2.1M"
+                gmv="€5.640"
+                niche="Tech · Gaming"
+                gradient="from-blue-600 to-violet-600"
+                initials="AM"
+                verified={false}
+                delay={0}
+                videoColors={["bg-blue-400", "bg-violet-500", "bg-indigo-400", "bg-blue-300", "bg-violet-400", "bg-indigo-500"]}
+              />
+            </div>
+
+            {/* Sarah - rechts */}
+            <div className="absolute top-4 right-0 z-20">
+              <TikTokProfileCard
+                name="@fitgirl_leuven"
+                handle="fitgirl_leuven"
+                followers="67.8K"
+                likes="1.4M"
+                gmv="€4.120"
+                niche="Fitness · Health"
+                gradient="from-emerald-500 to-teal-600"
+                initials="SK"
+                verified={true}
+                delay={0.4}
+                videoColors={["bg-emerald-400", "bg-teal-300", "bg-green-400", "bg-emerald-300", "bg-teal-400", "bg-green-300"]}
+              />
+            </div>
+
+            {/* AI Match badge - onder */}
+            <FloatingCard delay={0.8} className="absolute bottom-8 left-1/2 -translate-x-1/2 w-56">
+              <div className="bg-[#1a0533]/90 backdrop-blur-xl border border-[#ff0050]/30 rounded-2xl px-4 py-3 shadow-2xl flex items-center gap-3">
+                <div className="w-8 h-8 bg-[#ff0050] rounded-xl flex items-center justify-center shrink-0">
+                  <Sparkles className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs font-black text-white">AI Match actief</p>
+                  <p className="text-[10px] text-white/50">3 creators klaar voor jouw merk</p>
+                </div>
+              </div>
+            </FloatingCard>
           </div>
         </div>
 
